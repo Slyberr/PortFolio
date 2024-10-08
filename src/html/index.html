@@ -5,15 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/index.css" rel="stylesheet">
     <title>Mon Portfolio</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="../js/backgroundstyle.js"></script>
+    
 </head>
 <body>
-
+    <video id="backgroundVideo" autoplay muted loop>
+        <source src="../images/clouds.mp4" type="video/mp4">
+        Error: Your navigator must not support the video
+    </video>
     <header>
         <nav>
             <ul>
-                <li><a href="#projets">PROJECTS</a></li>
-                <li><a href="#a-propos">ABOUT ME</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#pres">Présentation</a></li>
+                <li><a href="#professionnal">Projets professionnels</a></li>
+                <li><a href="#perso">Passions Personnelles</a></li>
+                <li><a href="#contact">Me contacter</a></li>
             </ul>
         </nav>
     </header>
@@ -28,6 +37,17 @@
                 <img id="louis_Pic" src="../images/Louis_Image.png">
             </div>
         </div>
+    </div>
+    <div class="sub-division"id="pres">
+        <p class="textToHide" style="display: block;">Cliquez ici pour découvrir mon parcours scolaire !</p>
+        <p class="textToShow" style="display: none;"> Après mon Baccalauréat général (spécialité Physique-Chimie/Mathématique)
+            J'ai voulu me lancer dans ce qui était encore inconnu pour moi: L'Informatique 💻
+            En effet, même en dehors de mes études, la programmation ne m'étais pas famillière.
+            Lors de mon cursus d'une durée de 3 ans (BUT Informatique), le chemin était forcément semé d'embuches,
+            mais ce n'est pas cela qui m'arrêtais pour autant, tout simplement parce que je me suis découvert un véritable intérêt pour 
+            ce domaine. Je vous invite d'ailleurs à aller regarder mon panel de compétences
+            situé dans une section plus bas.</p>
+       
     </div>
    
 
