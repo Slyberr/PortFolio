@@ -62,8 +62,13 @@ a:hover{
 #describ_Louis_label{
     font-size: 30px;
 }
+#imageLouis{
+    display: flex;
+    align-items: center;
+}
 #louis_Pic{
-    height: 500px;
+    height: 300px;
+    border-radius: 10px;
     
 }
 .sub-division{
@@ -83,4 +88,13 @@ a:hover{
     font-size: 25px;
     background-color: rgb(26, 0, 39);
     color:white;
+}
+.return-section{
+    background: none;
+    font-family: "League Spartan";
+    color: white;
+    border: none;
+}
+.return-section:hover{
+    text-decoration: underline;
 }
