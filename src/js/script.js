@@ -8,12 +8,12 @@ $(document).ready(function(){
     //sur les sections de textes à faire apparaître
     $('.sub-division').click(function (){
 
-       if( $('.textToHide').css('display')!='none'){
+       if( $('.textToHide').css('display')!='none' ){
 
-        $('.textToHide').css("display","none");
-        $('.textToShow').css("display","flex");
+        $(this).find('.textToHide').css("display","none");
+        $(this).find('.textToShow').css("display","flex");
 
-        $('.sub-division').css({
+        $(this).css({
             'font-size':'20px',
             'background-color':'black',
             'color':'white'}
@@ -28,7 +28,7 @@ $(document).ready(function(){
     //si le texte est affiché, on ne veut pas de style lors du hover
     $('.sub-division').on('mouseenter',function (){
         
-        if ($('.textToShow').css('display')=='none'){
+        if ($(this).find('.textToShow').css('display')=='none'){
         
             $(this).css({
                 'font-size':'25px',
@@ -40,7 +40,7 @@ $(document).ready(function(){
 
     $('.sub-division').on('mouseleave',function (){
         
-        if ($('.textToShow').css('display')=='none'){
+        if ($(this).find('.textToShow').css('display')=='none'){
             $(this).css({
                 'font-size':'20px',
                 'background-color':'black',

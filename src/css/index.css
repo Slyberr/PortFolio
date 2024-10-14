@@ -42,24 +42,29 @@ a:hover{
 .Box_Nom{
     display:flex;  
     justify-content: space-between;
+    column-gap: 10px;
     grid-column: 2;
 }
 .labelsNom{
     display: flex;
     flex-direction: column;
     transition: color 0.5s;
+    text-align: center;
+    align-self: center;
     
 }
 .labelsNom:hover{
 
-    color: blueviolet;
+    color: rgba(0, 0, 0, 0.532);
 }
 
 #LouisPLabel{
     font-size: 100px;
-    margin-bottom: auto;
+    margin-bottom: 15px;
+    margin-top: 0;
 }
 #describ_Louis_label{
+    margin: 0;
     font-size: 30px;
 }
 #imageLouis{
@@ -70,6 +75,12 @@ a:hover{
     height: 300px;
     border-radius: 10px;
     
+}
+.subs-divisions{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
 }
 .sub-division{
     display: flex;
