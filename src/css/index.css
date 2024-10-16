@@ -1,22 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+:root{
+    --bg:whitesmoke;
+    --font:black;
+    
+
+
+}
+
 body{
     margin: 0;
     font-family: "League Spartan";
-    background-color: rgb(213, 105, 213);
+    background-color: var(--bg);
+    color: var(--font);
 }
 
-video{
-    position: absolute;
-    z-index: -1;
-    opacity: 0.4;
-}
 
 header{
+    position: sticky;
     color:white;
     background-color: black;
+   
 }
 
 header > nav > ul{
+    
     list-style-type:none;
     margin: 0;
     padding: 10px;
@@ -24,15 +32,17 @@ header > nav > ul{
     justify-content: space-around;   
     
 }
+li:hover{
+    color: rgb(0, 191, 255);
+    transition: 0.2s ;
+}
+
 a{
     text-decoration:none;
     color: white;
     font-size: 20px;
 }
-a:hover{
-    color: rgb(0, 191, 255);
-    transition: 0.2s ;
-}
+
  #gridAffichage{
     display: grid;
     grid-template-columns:2fr 5fr 2fr;
@@ -109,3 +119,5 @@ a:hover{
 .return-section:hover{
     text-decoration: underline;
 }
+
+

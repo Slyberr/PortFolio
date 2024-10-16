@@ -18,10 +18,20 @@ function showHidTextSubDivTreatement(currentID){
   
 }
 
+
+function changeBrightMode(actualIcon){
+    if (actualIcon.attr("isBright")=="false"){
+        actualIcon.attr("isBright","true")
+        actualIcon.attr("src","../images/sun.svg")
+    }else{
+        actualIcon.attr("isBright","false")
+        actualIcon.attr("src","../images/moon.svg")
+    }
+}
+
 $(document).ready(function(){
 
-    //ralentir la video
-    $('#backgroundVideo')[0].playbackRate=0.8;
+   
 
     //code pour l'entête
     $('.entete').on('click',function(){
@@ -42,6 +52,10 @@ $(document).ready(function(){
 
         $('.textToShow').css('display','none'); 
         $('.textToHide').css("display","flex");
+    })
+
+    $('#iconBright').on('click',function(){
+        changeBrightMode($(this));
     })
 })
 
