@@ -2,9 +2,10 @@
 
 :root{
     --bg:whitesmoke;
-    --font:black;
-    
-
+    --text-inBoxfont:white;
+    --text-inHeadFont:white;
+    --simpleText:black;
+    --bgBox:black;
 
 }
 
@@ -18,8 +19,8 @@ body{
 
 header{
     position: sticky;
-    color:white;
-    background-color: black;
+    color:var(--text-inHeadFont);
+    background-color: var(--bgBox);
    
 }
 
@@ -39,7 +40,7 @@ li:hover{
 
 a{
     text-decoration:none;
-    color: white;
+    color: var(--text-inHeadFont);
     font-size: 20px;
 }
 
@@ -72,10 +73,12 @@ a{
     font-size: 100px;
     margin-bottom: 15px;
     margin-top: 0;
+    color:var(--simpleText)
 }
 #describ_Louis_label{
     margin: 0;
     font-size: 30px;
+    color:var(--simpleText)
 }
 #imageLouis{
     display: flex;
@@ -100,20 +103,19 @@ a{
     margin-left: 10%;
     border-radius: 10px;
     font-size: 20px;
-    color:white;
-    background-color: black;
+    color:var(--text-inBoxfont);
+    background-color: var(--bgBox);
     transition: font-size 0.5s,background-color 0.5s,color 0.5s;
 }
 
 .sub-division:hover{
     font-size: 25px;
     background-color: rgb(26, 0, 39);
-    color:white;
 }
 .return-section{
     background: none;
     font-family: "League Spartan";
-    color: white;
+    color: var(--text-inBoxfont);
     border: none;
 }
 .return-section:hover{

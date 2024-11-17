@@ -23,9 +23,22 @@ function changeBrightMode(actualIcon){
     if (actualIcon.attr("isBright")=="false"){
         actualIcon.attr("isBright","true")
         actualIcon.attr("src","../images/sun.svg")
+        //changement des couleurs définies dans root.
+        $(':root').css({
+            '--bg':'whitesmoke',
+            '--text-inBoxfont':'white',
+            '--text-inHeadFont':'white',
+            '--simpleText':'black',
+            '--bgBox':'black'})
     }else{
         actualIcon.attr("isBright","false")
         actualIcon.attr("src","../images/moon.svg")
+        $(':root').css({
+            '--bg':'black',
+            '--text-inBoxfont':'black',
+            '--text-inHeadFont':'black',
+            '--simpleText':'white',
+            '--bgBox':'white'})
     }
 }
 
@@ -59,4 +72,4 @@ $(document).ready(function(){
     })
 })
 
-//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
+//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
