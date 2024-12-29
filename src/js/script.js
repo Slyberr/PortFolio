@@ -3,10 +3,23 @@ function showPanel(currentID){
  
     
     let grabText=$(currentID).find('.textPanel').text()
-    const panel=$("<div class='tempPanel'><p></p><button class='collapse-section'><i><strong>Fermer</strong></i></button></div>");
+    const panel=$("<div class='overlay'> <div class='tempPanel'><p></p><button class='collapse-section'><i><strong>Fermer</strong></i></button></div></div>");
     panel.find('p').text(grabText);
    
     $('body').append(panel)
+   
+    $('.overlay').css({
+        "display": "flex",
+        "justify-content": "center",
+        "align-items": "center",
+        "position": "fixed",
+        "top": 0,
+        "left": 0,
+        "width": "100%",
+        "height": "100%",
+        "background-color":"rgb(0,0,0,0.2)"
+       
+    })
     $('.tempPanel').css({
 
             "display": "flex",
@@ -16,13 +29,14 @@ function showPanel(currentID){
             "background-color": "var(--bgBox)",
             "width": "50%",
             "position": "absolute",
-            "inset":"25%"
+            "inset":"25%",
+            
     
     })
-    
-    //on ajoute un event sur le bouton fermer pour supprimer le panel
-    $('.collapse-section').parent().on('click',function(){
-        $(this).remove(); 
+   
+    //on ajoute un event sur le bouton fermer pour supprimer le panel + overlay
+    $('.collapse-section').on('click',function(){
+        $(".overlay").remove(); 
     
     })
        
