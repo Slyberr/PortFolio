@@ -90,19 +90,23 @@ a{
     
 }
 .subs-divisions{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:5%;
+    margin-top:10%;
 
 }
 .sub-division{
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 15px;
-    margin-right: 10%;
-    margin-left: 10%;
     border-radius: 10px;
     font-size: 20px;
+    width:400px;
+    min-height: 100px;
     color:var(--text-inBoxfont);
     background-color: var(--bgBox);
     transition: font-size 0.5s,background-color 0.5s,color 0.5s;
