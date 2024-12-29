@@ -33,12 +33,14 @@ function showPanel(currentID){
         "background-color": "var(--bgBox)",
         "width": "50%",
         "position": "absolute",
-        "inset":"25%",    
+        "inset":"25%",  
+        'border-radius':'15px'  
     
     });
     $('.tempPanel').find('p').css({
         'margin':'5%',
-        'font-size':'25px'
+        'font-size':'25px',
+        
     }
     )
   

@@ -78,7 +78,8 @@ a{
 #describ_Louis_label{
     margin: 0;
     font-size: 30px;
-    color:var(--simpleText)
+    color:var(--simpleText);
+
 }
 #imageLouis{
     display: flex;
@@ -124,6 +125,17 @@ a{
 }
 .collapse-section:hover{
     text-decoration: underline;
+}
+
+.pres-languages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:250px 25% 50px 25% ;
+    margin-left: 25%;
+    margin-right:25% ;
+    flex-wrap: wrap;
+    gap:50px;
 }
 
 
