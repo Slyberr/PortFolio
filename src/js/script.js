@@ -1,19 +1,33 @@
-//sur les sections de textes à faire apparaître
-function showHidTextSubDivTreatement(currentID){
+//affiche le panel
+function showPanel(currentID){
  
-    //si le texte est affiché, on ne veut pas de style lors du hover
-          
-    if( $(currentID).find('.textToHide').css('display')!='none' ){
+    
+    let grabText=$(currentID).find('.textPanel').text()
+    const panel=$("<div class='tempPanel'><p></p><button class='collapse-section'><i><strong>Fermer</strong></i></button></div>");
+    panel.find('p').text(grabText);
+   
+    $('body').append(panel)
+    $('.tempPanel').css({
 
-        $(currentID).find('.textToHide').css("display","none");
-        $(currentID).find('.textToShow').css("display","flex");
+            "display": "flex",
+            "justify-content": "center",
+            "align-items": "center",
+            "color":"var(--text-inBoxfont)",
+            "background-color": "var(--bgBox)",
+            "width": "50%",
+            "position": "absolute",
+            "inset":"25%"
+    
+    })
+    
+    //on ajoute un event sur le bouton fermer pour supprimer le panel
+    $('.collapse-section').parent().on('click',function(){
+        $(this).remove(); 
+    
+    })
+       
 
-        $(currentID).css({
-            'font-size':'20px',
-            'background-color':'black',
-            'color':'white'}
-        )
-    }
+    
 
   
 }
@@ -35,10 +49,10 @@ function changeBrightMode(actualIcon){
         actualIcon.attr("src","../images/moon.svg")
         $(':root').css({
             '--bg':'black',
-            '--text-inBoxfont':'black',
-            '--text-inHeadFont':'black',
+            '--text-inBoxfont':'whitesmoke',
+            '--text-inHeadFont':'whitesmoke',
             '--simpleText':'white',
-            '--bgBox':'white'})
+            '--bgBox':'#0E202E'})
     }
 }
 
@@ -46,30 +60,33 @@ $(document).ready(function(){
 
    
 
-    //code pour l'entête
+    //quand on click sur l'entete
     $('.entete').on('click',function(){
         let sectionName =$(this).attr('href')
-        showHidTextSubDivTreatement(sectionName)
+        showPanel(sectionName)
 
     })
 
-    $('.sub-division').on('click',function(){
-        showHidTextSubDivTreatement('#'+ $(this).attr('id'))
-
-    })
-    
-
-    $('.return-section').on('click',function(e){
-        //la sub-division a déjà un onclick, le bouton cliqué, cela se propage aussi sur la box, ce n'est pas ce qu'on veut.
-        e.stopPropagation()
-
-        $('.textToShow').css('display','none'); 
-        $('.textToHide').css("display","flex");
-    })
-
+    //lors du click sur l'icone de l'entete
     $('#iconBright').on('click',function(){
         changeBrightMode($(this));
     })
+
+    //quand on click sur une box text
+    $('.sub-division').on('click',function(){
+        showPanel('#'+ $(this).attr('id'))
+
+    })
+    
+    $('.sub-division').on('hover',function(){
+        $(this).css({})
+    })
+
+    
+    
+   
+
+    
 })
 
 //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
