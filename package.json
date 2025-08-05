@@ -1,0 +1,20 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Npm pour le projet portefolio",
+  "homepage": "https://github.com/Slyberr/PortFolio#readme",
+  "bugs": {
+    "url": "https://github.com/Slyberr/PortFolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slyberr/PortFolio.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
