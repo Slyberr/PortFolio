@@ -1,7 +1,32 @@
-//affiche le panel
+$(document).ready(function(){
+
+    //quand on clique sur l'entete
+    $('.entete').on('click',function(){
+        let sectionName =$(this).attr('href')
+        showPanel(sectionName)
+    })
+
+    //lors du clique sur l'icone de l'entete
+    $('#iconBright').on('click',function(){
+        changeBrightMode($(this));
+    })
+
+    //quand on click sur une box text
+    $('.sub-division').on('click',function(){
+        showPanel('#'+ $(this).attr('id'))
+    })
+    
+    $('.sub-division').on('hover',function(){
+        $(this).css({})
+    })
+
+})
+
+
+
+//Gestion de l'affichage du panel avec le texte.
 function showPanel(currentID){
  
-    
     let grabText=$(currentID).find('.textPanel').text()
     const panel=$("<div class='overlay'> <div class='tempPanel'><button class='collapse-section'><img id='image-retour' src='../images/WhiteCross.svg'></button><p></p></div></div>");
     panel.find('p').text(grabText);
@@ -9,9 +34,9 @@ function showPanel(currentID){
     $('body').append(panel)
    
 
-    //regles css des elements ajoutés
-
-
+    //on applique les styles css
+    
+    //background
     $('.overlay').css({
         "display":"none",
         "justify-content": "center",
@@ -22,9 +47,9 @@ function showPanel(currentID){
         "width": "100%",
         "height": "100%",
         "background-color":"rgb(0,0,0,0.2)"
-       
     });
 
+    //panel
     $('.tempPanel').css({
         "display":"flex",
         "justify-content": "center",
@@ -34,44 +59,41 @@ function showPanel(currentID){
         "width": "50%",
         "position": "absolute",
         "inset":"25%",  
-        'border-radius':'15px'  
-    
+        'border-radius':'15px',
+        'animation-name': 'slideIn',  
+        'animation-duration': '0.5s'
+        
     });
+
     $('.tempPanel').find('p').css({
         'margin':'5%',
-        'font-size':'25px',
-        
-    }
-    )
-  
+        'font-size':'25px', 
+    });
     
+    //bouton fermer
     $('#image-retour').css({
         'width':'25%',
         'height':'25%'
-       
-    })
+    });
 
 
     //animations
-
     $('.overlay').fadeIn();   
-
+    
     //on ajoute un event sur le bouton fermer pour supprimer le panel + overlay
     $('.collapse-section').on('click',function(){
+
+        $('.tempPanel').css({
+            'animation-name': 'slideOut',  
+            'animation-duration': '0.5s' 
+        });
+
        $('.overlay').fadeOut(function(){
-        $('.overlay').remove();
+            $('.overlay').remove();
        })
        
     })
-
-    
-       
-
-    
-
-  
 }
-
 
 function changeBrightMode(actualIcon){
     if (actualIcon.attr("isBright")=="false"){
@@ -83,7 +105,8 @@ function changeBrightMode(actualIcon){
             '--text-inBoxfont':'white',
             '--text-inHeadFont':'white',
             '--simpleText':'black',
-            '--bgBox':'black'})
+            '--bgBox':'black'
+        })
     }else{
         actualIcon.attr("isBright","false")
         actualIcon.attr("src","../images/moon.svg")
@@ -92,7 +115,8 @@ function changeBrightMode(actualIcon){
             '--text-inBoxfont':'whitesmoke',
             '--text-inHeadFont':'whitesmoke',
             '--simpleText':'white',
-            '--bgBox':'#0E202E'})
+            '--bgBox':'#0E202E'
+        })
     }
 }
 
@@ -100,36 +124,4 @@ function getActualcolorTheme(){
     return $('#iconBright').attr('isBright')
 }
 
-$(document).ready(function(){
-
-   
-
-    //quand on click sur l'entete
-    $('.entete').on('click',function(){
-        let sectionName =$(this).attr('href')
-        showPanel(sectionName)
-
-    })
-
-    //lors du click sur l'icone de l'entete
-    $('#iconBright').on('click',function(){
-        changeBrightMode($(this));
-    })
-
-    //quand on click sur une box text
-    $('.sub-division').on('click',function(){
-        showPanel('#'+ $(this).attr('id'))
-
-    })
-    
-    $('.sub-division').on('hover',function(){
-        $(this).css({})
-    })
-
-    
-    
-   
-
-    
-})
 

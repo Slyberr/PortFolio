@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+//Espace keyFrame
+@keyframes slideIn {
+  from {
+    transform: translateY(1000px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+//Espace keyFrame
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+:root {
+    --bg: whitesmoke;
+    --text-inBoxfont: white;
+    --text-inHeadFont: white;
+    --simpleText: rgb(0, 0, 0);
+    --bgBox: black;
+
+    body {
+        margin: 0;
+        font-family: "League Spartan";
+        background-color: var(--bg);
+        color: var(--simpleText);
+
+        header {
+            position: sticky;
+            color: var(--text-inHeadFont);
+            background-color: var(--bgBox);
+
+            &>nav>ul {
+
+                list-style-type: none;
+                margin: 0;
+                padding: 10px;
+                display: flex;
+                justify-content: space-around;
+
+                &>li{
+                    &:hover {
+                        color: rgb(0, 191, 255);
+                        transition: 0.2s;
+                    }
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-inHeadFont);
+            font-size: 20px;
+        }
+
+        #gridPresentations {
+            display: grid;
+            grid-template-columns: 2fr 5fr 2fr;
+            margin: 25px;
+        }
+
+
+        .Box_Nom {
+            display: flex;
+            justify-content: space-between;
+            column-gap: 10px;
+            grid-column: 2;
+        }
+
+        .labelsNom {
+            display: flex;
+            flex-direction: column;
+            transition: color 0.5s;
+            text-align: center;
+            align-self: center;
+
+            &:hover {
+                color: rgba(0, 0, 0, 0.532);
+            }
+        }
+
+        #LouisPLabel {
+            font-size: 100px;
+            margin-bottom: 15px;
+            margin-top: 0;
+            color: var(--simpleText)
+        }
+
+        #describ_Louis_label {
+            margin: 0;
+            font-size: 30px;
+            color: var(--simpleText);
+
+        }
+
+        #imageLouis {
+            display: flex;
+            align-items: center;
+        }
+
+        #louis_Pic {
+            height: 300px;
+            border-radius: 10px;
+
+        }
+
+        .subs-divisions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5%;
+            max-width: 1000px;
+            margin: 10% auto 0% auto;
+        }
+
+        .sub-division {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            width: 400px;
+            min-height: 100px;
+            color: var(--text-inBoxfont);
+            background-color: var(--bgBox);
+            transition: font-size 0.5s, background-color 0.5s, color 0.5s;
+        }
+
+        .sub-division:hover {
+            font-size: 25px;
+            background-color: rgb(26, 0, 39);
+        }
+
+        .collapse-section {
+            background: none;
+            font-family: "League Spartan";
+            color: var(--text-inBoxfont);
+            border: none;
+        }
+
+        .collapse-section:hover {
+            text-decoration: underline;
+        }
+
+        .pres-languages {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 250px 25% 50px 25%;
+            margin-left: 25%;
+            margin-right: 25%;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+    }
+}
