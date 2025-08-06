@@ -2,21 +2,58 @@
 
 //Espace keyFrame
 @keyframes slideIn {
-  from {
-    transform: translateY(1000px);
-  }
-  to {
-    transform: translateY(0);
-  }
+    from {
+        transform: translateY(1000px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
-//Espace keyFrame
+
 @keyframes slideOut {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-1000px);
-  }
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-1000px);
+    }
+}
+
+//Animation de surlignement dynamique
+@keyframes PointToBar {
+    0% {
+        transform: scaleX(0) translateX(0);
+    }
+
+    30% {
+        transform: scaleX(1);
+        opacity: 1;
+        transform-origin: left;
+    }
+
+    31% {
+        transform-origin: right;
+    }
+
+    100% {
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+}
+
+//Animation pour créer un effet d'ambiance
+@keyframes ambianceAnimation {
+    from {
+        transform: translateY(0);
+    }
+
+    to{
+        transform: translateY(10px);
+    }
+
+   
 }
 
 :root {
@@ -25,6 +62,7 @@
     --text-inHeadFont: white;
     --simpleText: rgb(0, 0, 0);
     --bgBox: black;
+    --gradient-color1: linear-gradient(to right, darkviolet, rgb(0, 191, 255));
 
     body {
         margin: 0;
@@ -45,10 +83,30 @@
                 display: flex;
                 justify-content: space-around;
 
-                &>li{
+                &>li {
+                    position: relative;
                     &:hover {
                         color: rgb(0, 191, 255);
                         transition: 0.2s;
+                    }
+
+                    &:hover::after {
+
+                        //position de la barre
+                        position: absolute;
+                        content: "";
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+
+                        //style de la barre
+                        min-height: 4px;
+                        background: var(--gradient-color1);
+
+                        //animation de la barre
+                        transform: scaleX(0) translateX(0);
+                        transform-origin: left;
+                        animation: PointToBar 0.7s ease;
                     }
                 }
             }
@@ -87,11 +145,34 @@
         }
 
         #LouisPLabel {
+            position: relative;
             font-size: 100px;
             margin-bottom: 15px;
             margin-top: 0;
-            color: var(--simpleText)
+            color: var(--simpleText);
+
+            //ajout de la barre de soulignement
+            &:hover::after {
+
+                //position de la barre
+                position: absolute;
+                content: "";
+                bottom: 0;
+                left: 0;
+                margin: 0 5px 0 5px;
+                width: 95%;
+
+                //style de la barre
+                min-height: 7px;
+                background: var(--gradient-color1);
+
+                //animation de la barre
+                transform: scaleX(0) translateX(0);
+                transform-origin: left;
+                animation: PointToBar 0.7s ease;
+            }
         }
+
 
         #describ_Louis_label {
             margin: 0;
@@ -103,6 +184,7 @@
         #imageLouis {
             display: flex;
             align-items: center;
+            //animation: ambianceAnimation 2s infinite alternate cubic-bezier(0.60, 1, 0.22, 1);
         }
 
         #louis_Pic {

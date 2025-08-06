@@ -33,7 +33,6 @@ function showPanel(currentID){
    
     $('body').append(panel)
    
-
     //on applique les styles css
     
     //background
