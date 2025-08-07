@@ -29,9 +29,16 @@ function showPanel(currentID){
     let grabText=$(currentID).find('.textPanel').text()
     const panel=$("<div class='overlay'> <div class='tempPanel'><button class='collapse-section'><img id='image-retour' src='../images/WhiteCross.svg'></button><p></p></div></div>");
     panel.find('p').text(grabText);
-   
+    
     $('body').append(panel)
-   
+    $('body').on('keydown', function(event) {
+        //fermer le panel si la touche "Escape" est pressée
+        if (event.key === "Escape") {
+            $('.collapse-section').trigger('click'); 
+        }
+    });
+
+
     //on applique les styles css
     
     //background
@@ -44,7 +51,7 @@ function showPanel(currentID){
         "left": 0,
         "width": "100%",
         "height": "100%",
-        "background-color":"rgb(0,0,0,0.2)"
+        "background-color":"rgb(0,0,0,0.8)"
     });
 
     //style du panel
@@ -52,11 +59,14 @@ function showPanel(currentID){
         "display":"flex",
         "justify-content": "center",
         "align-items": "center",
+        "position": "absolute",
+        "top": "25%",
+        "bottom": "25%",
+        "margin": "0 5%",
+        "overflow-y": "scroll",
+
         "color":"var(--text-inBoxfont)",
         "background-color": "var(--bgBox)",
-        "width": "50%",
-        "position": "absolute",
-        "inset":"25%",  
         'border-radius':'15px',
         'animation-name': 'slideIn',  
         'animation-duration': '0.5s'  
@@ -72,7 +82,11 @@ function showPanel(currentID){
         'width':'25%',
         'height':'25%'
     });
-
+    //on bloque le scroll de la page
+     $('body').css({
+        'overflow':'hidden' 
+     })
+     
 
     //animation d'apparition du panel
     $('.overlay').fadeIn();   
@@ -89,6 +103,9 @@ function showPanel(currentID){
        $('.overlay').fadeOut(function(){
             $('.overlay').remove();
        })
+       $('body').css({
+        'overflow':'auto' 
+     })
        
     })
 }
