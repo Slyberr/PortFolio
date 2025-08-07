@@ -1,25 +1,24 @@
 $(document).ready(function(){
 
-    //quand on clique sur l'entete
-    $('.entete').on('click',function(){
-        let sectionName =$(this).attr('href')
-        showPanel(sectionName)
+    //clique sur l'entete
+    $('li ').on('click',function(){
+        let sectionName =$(this).find('a').attr('href');
+        if (sectionName){
+            showPanel(sectionName)
+
+        }
     })
 
     //lors du clique sur l'icone de l'entete
-    $('#iconBright').on('click',function(){
+    $('#iconColorMode').on('click',function(){
         changeBrightMode($(this));
     })
 
-    //quand on click sur une box text
+    // clique sur une box text
     $('.sub-division').on('click',function(){
         showPanel('#'+ $(this).attr('id'))
     })
     
-    $('.sub-division').on('hover',function(){
-        $(this).css({})
-    })
-
 })
 
 
@@ -48,7 +47,7 @@ function showPanel(currentID){
         "background-color":"rgb(0,0,0,0.2)"
     });
 
-    //panel
+    //style du panel
     $('.tempPanel').css({
         "display":"flex",
         "justify-content": "center",
@@ -60,8 +59,7 @@ function showPanel(currentID){
         "inset":"25%",  
         'border-radius':'15px',
         'animation-name': 'slideIn',  
-        'animation-duration': '0.5s'
-        
+        'animation-duration': '0.5s'  
     });
 
     $('.tempPanel').find('p').css({
@@ -76,7 +74,7 @@ function showPanel(currentID){
     });
 
 
-    //animations
+    //animation d'apparition du panel
     $('.overlay').fadeIn();   
     
     //on ajoute un event sur le bouton fermer pour supprimer le panel + overlay
@@ -87,6 +85,7 @@ function showPanel(currentID){
             'animation-duration': '0.5s' 
         });
 
+        //animation de disparition du panel
        $('.overlay').fadeOut(function(){
             $('.overlay').remove();
        })
@@ -94,8 +93,9 @@ function showPanel(currentID){
     })
 }
 
+//Gestion du mode clair/sombre
 function changeBrightMode(actualIcon){
-    if (actualIcon.attr("isBright")=="false"){
+    if (!isBrightTheme()){
         actualIcon.attr("isBright","true")
         actualIcon.attr("src","../images/sun.svg")
         //changement des couleurs définies dans root.
@@ -119,8 +119,9 @@ function changeBrightMode(actualIcon){
     }
 }
 
-function getActualcolorTheme(){
-    return $('#iconBright').attr('isBright')
+// Fonction pour obtenir le thème de couleur actuel
+function isBrightTheme(){
+    return $('#iconColorMode').attr('isBright') === "true";
 }
 
 
