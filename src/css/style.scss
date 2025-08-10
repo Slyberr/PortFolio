@@ -56,6 +56,7 @@
     --gradient-color1: linear-gradient(to right, darkviolet, rgb(0, 191, 255));
 
     body {
+
         margin: 0;
         font-family: "League Spartan";
         background-color: var(--bg);
@@ -103,6 +104,8 @@
                 }
             }
         }
+
+
 
         a {
             text-decoration: none;
@@ -214,6 +217,7 @@
             margin: 10px;
             padding: 15px;
             border-radius: 10px;
+            border: 3px black solid;
             width: 400px;
             min-height: 100px;
             color: var(--text-inBoxfont);
@@ -224,6 +228,7 @@
             &:hover {
                 font-size: 21px;
             }
+
             &::before {
                 content: "";
                 position: absolute;
@@ -231,34 +236,22 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                border-radius: 20px;
+                border-radius: 10px;
                 background: var(--gradient-color1);
                 //animation de la barre
                 transform-origin: left;
                 transform: scaleX(0);
-                transition: transform 300ms ease, border-radius 300ms ease;
+                transition: transform 600ms ease-in-out, border-radius 300ms ease;
                 z-index: -1;
             }
+
             &:hover::before {
                 border-radius: 10px;
                 transform: scale(1);
-                
+
             }
+
         }
-
-
-
-        .collapse-section {
-            background: none;
-            font-family: "League Spartan";
-            color: var(--text-inBoxfont);
-            border: none;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-
 
 
         .pres-languages {
@@ -271,5 +264,62 @@
             flex-wrap: wrap;
             gap: 50px;
         }
+
+
+
+        //style complet du panel
+        .overlay {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0, 0, 0, 0.8);
+        }
+
+        .temp-panel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 25%;
+            bottom: 25%;
+            margin: 0 5%;
+            overflow-y: scroll;
+            scrollbar-color: darkviolet black;
+
+            color: var(--text-inBoxfont);
+            background-color: var(--bgBox);
+            border-radius: 15px;
+            animation-name: slideIn;
+            animation-duration: 0.5s;
+
+            &>content-panel {
+                text-align: justify;
+                margin: 5%;
+                font-size: 35px
+            }
+
+            &>.collapse-section {
+            background: none;
+            font-family: "League Spartan";
+            color: var(--text-inBoxfont);
+            border: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+                &>#image-retour {
+                max-width: 25%;
+                max-height: 25%
+            }
+            }
+            
+        }
     }
+
+
 }
