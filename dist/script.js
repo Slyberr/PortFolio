@@ -8,48 +8,39 @@ document.addEventListener("DOMContentLoaded", function () {
             showPanel(sectionName);
         }
     });
-    //lors du clique sur l'icone de l'entete
+    //lors du clique sur l'icone pour changer le thème
     $('#iconColorMode').on('click', function () {
         changeBrightMode($(this));
     });
-    // clique sur une box text
+    //lors du clique sur une division à découvrir text
     $('.sub-division').on('click', function () {
         showPanel('#' + $(this).attr('id'));
+    });
+    //lors du hover sur l'image de profil
+    $('#louis-pic').on('mouseover', function () {
+        $(this).attr('src', "../images/louis_cadre2.png");
+    });
+    //lors du hover sur l'image de profil
+    $('#louis-pic').on('mouseout', function () {
+        $(this).attr('src', "../images/louis_cadre.png");
     });
 });
 //Gestion de l'affichage du panel avec le texte.
 function showPanel(currentID) {
+    var body = $('body');
     var content = $(currentID).find('.section-to-show');
-    var panel = $("<div class='overlay'> <div class='temp-panel'><button class='collapse-section'><img id='image-retour' src='../images/WhiteCross.svg'></button><div class='content-section'></p></div></div>");
-    panel.find(".content-section").append(content.html());
-    $('body').append(panel);
+    var overlay = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/whiteCross.svg'><div class='content-section'></p></div></div>");
+    overlay.find(".content-section").append(content.html());
+    body.append(overlay);
     //on bloque le scroll de la page
-    $('body').css({
-        'overflow': 'hidden'
+    body.css({
+    //'overflow': 'hidden'
     });
-    //animation d'apparition du panel
-    $('.overlay').fadeIn();
-    $('body').on('keydown', function (event) {
-        //fermer le panel si la touche "Escape" est pressée
-        if (event.key === "Escape") {
-            $('.collapse-section').trigger('click');
-        }
-    });
-    //on ajoute un event sur le bouton fermer pour supprimer le panel + overlay
-    $('.collapse-section').on('click', function () {
-        $('.temp-panel').css({
-            'animation-name': 'slideOut',
-            'animation-duration': '0.5s'
-        });
-        //animation de disparition du panel
-        $('.overlay').fadeOut(function () {
-            $('.overlay').remove();
-        });
-        $('body').css({
-            'overflow': 'auto'
-        });
-    });
+    //apparition du panel
+    overlay.fadeIn();
+    collapsePanel(body, overlay);
 }
+;
 //Gestion du mode clair/sombre
 function changeBrightMode(actualIcon) {
     if (!isBrightTheme()) {
@@ -61,7 +52,7 @@ function changeBrightMode(actualIcon) {
             '--text-inBoxfont': 'white',
             '--text-inHeadFont': 'white',
             '--simpleText': 'black',
-            '--bgBox': 'black'
+            '--bgBox': 'black',
         });
     }
     else {
@@ -72,11 +63,39 @@ function changeBrightMode(actualIcon) {
             '--text-inBoxfont': 'whitesmoke',
             '--text-inHeadFont': 'whitesmoke',
             '--simpleText': 'white',
-            '--bgBox': '#0E202E'
+            '--bgBox': '#0E202E',
         });
     }
 }
+;
 // Fonction pour obtenir le thème de couleur actuel
 function isBrightTheme() {
     return $('#iconColorMode').attr('isBright') === "true";
 }
+;
+//Gestion de la fermeture du panel
+function collapsePanel(body, overlay) {
+    //on ajoute un event sur le bouton fermer pour supprimer le panel + overlay
+    $('#image-retour').on('click', function () {
+        //animation de disparition du panel
+        overlay.fadeOut(function () {
+            body.off('keydown.panel');
+            overlay.remove();
+        });
+        body.css({
+            'overflow': 'auto'
+        });
+    });
+    body.on('keydown.panel', function (event) {
+        if (event.key === "Escape") {
+            $('#image-retour').trigger('click');
+        }
+    });
+    //fermer le panel si le click est sur l'overlay exclusivement
+    $(overlay).on('click', function (event) {
+        if (event.target === this) {
+            $('#image-retour').trigger('click');
+        }
+    });
+}
+;
