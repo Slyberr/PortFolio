@@ -57,6 +57,7 @@
 
     body {
 
+        transition: background-color 0.5s;
         margin: 0;
         font-family: "League Spartan";
         background-color: var(--bg);
@@ -125,201 +126,232 @@
             justify-content: space-between;
             column-gap: 10px;
             grid-column: 2;
-            gap:100px;
-             #container-louis_pic{
-                &>#louis-pic{
+            gap: 100px;
+
+
+            #container-louis-pic {
+
+                &>#louis-pic {
                     max-width: 300px;
                     border-radius: 15px;
+                    transition: filter 0.5s;
                 }
-            }
 
-        }
+                &:hover #louis-pic {
+                    filter: blur(4px);
+                }
 
-        .labelsNom {
-            display: flex;
-            flex-direction: column;
-            transition: color 0.5s;
-            text-align: center;
-            align-self: center;
+                &>#button-img {
+                    display: flex;
+                    font-family: Arial, Helvetica, sans-serif;
+                    opacity: 0;
+                    position: relative;
+                    top: -160px;
+                    left: 60px;
+                    transition: opacity 0.5s;
+                    border-radius: 6px;
+                    border: whitesmoke 1px solid;
+                    font-size: 20px;
+                    color: var(--text-inBoxfont);
+                    background-color: var(--bgBox);
+                    transition: background-color 0.5s, opacity 0.5s;
 
-            &:hover {
-                color: rgba(0, 0, 0, 0.532);
-            }
-        }
+                    &:hover {
 
-        #LouisPLabel {
-            position: relative;
-            font-size: 100px;
-            margin-bottom: 15px;
-            margin-top: 0;
-            color: var(--simpleText);
+                        background-color: rgb(32, 160, 202);
+                    }
 
-            //ajout de la barre de soulignement
-            &:hover::after {
-
-                //position de la barre
-                position: absolute;
-                content: "";
-                bottom: 0;
-                left: 0;
-                margin: 0 5px 0 5px;
-                width: 95%;
-
-                //style de la barre
-                min-height: 7px;
-                background: var(--gradient-color1);
-
-                //animation de la barre
-                transform: scaleX(0) translateX(0);
-                transform-origin: left;
-                animation: PointToBar 0.7s ease;
-            }
-        }
-
-
-        #describ_Louis_label {
-            margin: 0;
-            font-size: 30px;
-            color: var(--simpleText);
-
-        }
-
-        .subs-divisions {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 5%;
-            max-width: 1000px;
-            margin: 10% auto 0% auto;
-        }
-
-        .sub-division {
-            display: flex;
-            position: relative;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            margin: 10px;
-            padding: 15px;
-            border-radius: 10px;
-            border: 3px black solid;
-            width: 400px;
-            min-height: 100px;
-            color: var(--text-inBoxfont);
-            background-color: var(--bgBox);
-            z-index: 0;
-            transition: font-size 0.6s ease;
-
-            &:hover {
-                font-size: 21px;
-            }
-
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 10px;
-                background: var(--gradient-color1);
-                //animation de la barre
-                transform-origin: left;
-                transform: scaleX(0);
-                transition: transform 600ms ease-in-out, border-radius 300ms ease;
-                z-index: -1;
-            }
-
-            &:hover::before {
-                border-radius: 10px;
-                transform: scale(1);
-
-            }
-        
-
-            .div-contact{
-                display: flex;
-                justify-content: space-between;
-                
-                img{
-                    width: 10%;
-                    
                 }
 
             }
-
         }
 
+    }
 
-        .pres-languages {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 250px 25% 50px 25%;
-            margin-left: 25%;
-            margin-right: 25%;
-            flex-wrap: wrap;
-            gap: 50px;
+    .labelsNom {
+        display: flex;
+        flex-direction: column;
+        transition: color 0.5s;
+        text-align: center;
+        align-self: center;
+
+        &:hover {
+            color: rgba(0, 0, 0, 0.532);
+        }
+    }
+
+    #LouisPLabel {
+        position: relative;
+        font-size: 100px;
+        margin-bottom: 15px;
+        margin-top: 0;
+        color: var(--simpleText);
+
+        //ajout de la barre de soulignement
+        &:hover::after {
+
+            //position de la barre
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: 0;
+            margin: 0 5px 0 5px;
+            width: 95%;
+
+            //style de la barre
+            min-height: 7px;
+            background: var(--gradient-color1);
+
+            //animation de la barre
+            transform: scaleX(0) translateX(0);
+            transform-origin: left;
+            animation: PointToBar 0.7s ease;
+        }
+    }
+
+
+    #describ_Louis_label {
+        margin: 0;
+        font-size: 30px;
+        color: var(--simpleText);
+
+    }
+
+    .subs-divisions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5%;
+        max-width: 1000px;
+        margin: 10% auto 0% auto;
+    }
+
+    .sub-division {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        border: 3px black solid;
+        width: 400px;
+        min-height: 100px;
+        color: var(--text-inBoxfont);
+        background-color: var(--bgBox);
+        z-index: 0;
+        transition: font-size 0.6s ease;
+
+        &:hover {
+            font-size: 21px;
         }
 
-
-
-        //style complet du panel
-        .overlay {
-            display: none;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
+        &::before {
+            content: "";
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgb(0, 0, 0, 0.8);
+            background: var(--gradient-color1);
+            border-radius: 10px;
+            //animation de la barre
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 400ms ease-in-out;
+            z-index: -1;
         }
 
-        .temp-panel {
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 25%;
-            bottom: 25%;
-            margin: 0 20%;
-            @media (max-width : 1100px){
-                margin : 0 20px;
-            }
-            @media (max-height : 600px){
-                top: 20px;
-                bottom: 20px;
-            }
-
-            overflow-y: scroll;
-            scrollbar-color: darkviolet black;
-
-            color: var(--text-inBoxfont);
-            background-color: var(--bgBox);
-            border-radius: 15px;
-            animation-name: slideIn;
-            animation-duration: 0.5s;
-
-            &>.content-section {
-                text-align: justify;
-                padding: 20px;
-                font-size:20px
-            }
-
-            #image-retour {
-                max-width:25px;
-                padding-top: 15px;
-                padding-left: 15px;
-            }
-            
+        &:hover::before {
+            transform: scale(1);
         }
-        
 
-            
-    
+
+        .div-contact {
+            display: flex;
+            justify-content: space-between;
+
+            img {
+                width: 10%;
+
+            }
+
+        }
+
     }
 
 
+    .pres-languages {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 250px 25% 50px 25%;
+        margin-left: 25%;
+        margin-right: 25%;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+
+
+
+    //style complet du panel
+    .overlay {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0, 0.8);
+    }
+
+    .temp-panel {
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 25%;
+        bottom: 25%;
+        margin: 0 20%;
+
+        @media (max-width : 1100px) {
+            margin: 0 20px;
+        }
+
+        @media (max-height : 600px) {
+            top: 20px;
+            bottom: 20px;
+        }
+
+        overflow-y: scroll;
+        scrollbar-color: darkviolet black;
+
+        color: var(--text-inBoxfont);
+        background-color: var(--bgBox);
+        border-radius: 15px;
+        animation-name: slideIn;
+        animation-duration: 0.5s;
+
+        &>.content-section {
+            text-align: justify;
+            padding: 20px;
+            font-size: 20px
+        }
+
+        #image-retour {
+            max-width: 25px;
+            padding-top: 15px;
+            padding-left: 15px;
+        }
+
+    }
+
+
+
+
 }
+
+

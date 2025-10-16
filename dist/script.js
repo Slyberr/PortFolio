@@ -16,13 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
     $('.sub-division').on('click', function () {
         showPanel('#' + $(this).attr('id'));
     });
-    //lors du hover sur l'image de profil
-    $('#louis-pic').on('mouseover', function () {
-        $(this).attr('src', "../images/louis_cadre2.png");
+    $('#container-louis-pic').on('mouseover', function () {
+        $('#button-img').css('opacity', '1');
     });
-    //lors du hover sur l'image de profil
-    $('#louis-pic').on('mouseout', function () {
-        $(this).attr('src', "../images/louis_cadre.png");
+    $('#container-louis-pic').on('mouseout', function () {
+        $('#button-img').css('opacity', '0');
     });
 });
 //Gestion de l'affichage du panel avec le texte.
@@ -32,10 +30,6 @@ function showPanel(currentID) {
     var overlay = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/whiteCross.svg'><div class='content-section'></p></div></div>");
     overlay.find(".content-section").append(content.html());
     body.append(overlay);
-    //on bloque le scroll de la page
-    body.css({
-    //'overflow': 'hidden'
-    });
     //apparition du panel
     overlay.fadeIn();
     collapsePanel(body, overlay);
