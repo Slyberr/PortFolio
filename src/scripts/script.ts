@@ -18,16 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
         showPanel('#' + $(this).attr('id'))
     })
 
-    //lors du hover sur l'image de profil
-    $('#louis-pic').on('mouseover',function() {
-        $(this).attr('src',"../images/louis_cadre2.png")
+    $('#container-louis-pic').on('mouseover', function() {
+        $('#button-img').css('opacity','1')
+        
     })
-    //lors du hover sur l'image de profil
-    $('#louis-pic').on('mouseout',function() {
-        $(this).attr('src',"../images/louis_cadre.png")
+    $('#container-louis-pic').on('mouseout', function() {
+        $('#button-img').css('opacity','0')
+        
     })
-
-
 
 })
 
@@ -41,13 +39,6 @@ function showPanel(currentID: string) {
     overlay.find(".content-section").append(content.html());
 
     body.append(overlay)
-
-
-    //on bloque le scroll de la page
-    body.css({
-        //'overflow': 'hidden'
-    })
-
 
     //apparition du panel
     overlay.fadeIn();
@@ -118,3 +109,4 @@ function collapsePanel(body: JQuery<HTMLElement>,overlay: JQuery<HTMLElement>){
 
     });
 };
+
