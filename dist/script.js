@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function showPanel(currentID) {
     var body = $('body');
     var content = $(currentID).find('.section-to-show');
-    var overlay = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/whiteCross.svg'><div class='content-section'></p></div></div>");
+    var overlay = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
     overlay.find(".content-section").append(content.html());
     body.append(overlay);
     //apparition du panel
@@ -39,7 +39,7 @@ function showPanel(currentID) {
 function changeBrightMode(actualIcon) {
     if (!isBrightTheme()) {
         actualIcon.attr("isBright", "true");
-        actualIcon.attr("src", "../images/sun.svg");
+        actualIcon.attr("src", "../images/icon_site/sun.svg");
         //changement des couleurs définies dans root.
         $(':root').css({
             '--bg': 'whitesmoke',
@@ -51,7 +51,7 @@ function changeBrightMode(actualIcon) {
     }
     else {
         actualIcon.attr("isBright", "false");
-        actualIcon.attr("src", "../images/moon.svg");
+        actualIcon.attr("src", "../images/icon_site/moon.svg");
         $(':root').css({
             '--bg': 'black',
             '--text-inBoxfont': 'whitesmoke',

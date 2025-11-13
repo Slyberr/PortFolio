@@ -88,7 +88,7 @@
 
                         //position de la barre
                         position: absolute;
-                        content: "";
+                        content: "test";
                         bottom: 0;
                         left: 0;
                         width: 100%;
@@ -282,17 +282,48 @@
 
     }
 
-
-    .pres-languages {
+    .box-languages {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 250px 25% 50px 25%;
-        margin-left: 25%;
-        margin-right: 25%;
-        flex-wrap: wrap;
-        gap: 50px;
+        flex-direction: column;
+        margin: 0 20% 0 20%;
+        font-size: 35px;
+        text-align: center;
+
+        .cards-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            flex-wrap: wrap;
+            gap: 50px;
+            border: 1px violet solid;
+
+            .program_card {
+                display: flex;
+                align-items: center;
+                border: red 1px solid;
+                width: 150px;
+                height: 150px;
+
+                img {
+                    border: blue solid 1px;
+                    width:100%;
+                }
+                &:hover::after{
+                    position: absolute;
+                    background-color: yellow;
+                    content : 'Kotlin/Java';
+                    
+                    
+                    width: 150px;
+                    height: 150px;
+                    opacity: 1;
+                }
+            }
+            
+        }
+        
     }
+
 
 
 
@@ -353,5 +384,3 @@
 
 
 }
-
-
