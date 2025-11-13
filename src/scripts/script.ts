@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         $('#button-img').css('opacity','0')
         
     })
-
+    
 })
 
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function showPanel(currentID: string) {
     const body = $('body');
     const content: JQuery = $(currentID).find('.section-to-show');
-    const overlay : JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/whiteCross.svg'><div class='content-section'></p></div></div>");
+    const overlay : JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
     overlay.find(".content-section").append(content.html());
 
     body.append(overlay)
@@ -49,7 +49,7 @@ function showPanel(currentID: string) {
 function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
     if (!isBrightTheme()) {
         actualIcon.attr("isBright", "true")
-        actualIcon.attr("src", "../images/sun.svg")
+        actualIcon.attr("src", "../images/icon_site/sun.svg")
         //changement des couleurs définies dans root.
         $(':root').css({
             '--bg': 'whitesmoke',
@@ -60,7 +60,7 @@ function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
         })
     } else {
         actualIcon.attr("isBright", "false")
-        actualIcon.attr("src", "../images/moon.svg")
+        actualIcon.attr("src", "../images/icon_site/moon.svg")
         $(':root').css({
             '--bg': 'black',
             '--text-inBoxfont': 'whitesmoke',
