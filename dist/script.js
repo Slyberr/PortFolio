@@ -1,9 +1,9 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", function () {
-    console.log($);
     //clique sur l'entete
     $('li ').on('click', function () {
-        var sectionName = $(this).find('a').attr('href');
+        var _a;
+        var sectionName = (_a = $(this).find('a').attr('href')) !== null && _a !== void 0 ? _a : "";
         if (sectionName) {
             showPanel(sectionName);
         }
@@ -21,6 +21,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     $('#container-louis-pic').on('mouseout', function () {
         $('#button-img').css('opacity', '0');
+    });
+    $('.program_card').on('mouseover', function () {
+        var _a;
+        var textToShow = (_a = $(this).find('img').attr('texttoshow')) !== null && _a !== void 0 ? _a : "";
+        $(this).css({
+            'filter': 'blur(4px)'
+        });
+        var divtoshow = $("<p class=\"temp-text\">".concat(textToShow, "</p>"));
+        divtoshow.css({
+            'position': 'absolute',
+            'color': 'red',
+            'filter': 'none',
+            'text-align': 'center'
+        });
+        $(this).append(divtoshow);
+    });
+    $('.program_card').on('mouseout', function () {
+        $(".temp-text").remove();
     });
 });
 //Gestion de l'affichage du panel avec le texte.
