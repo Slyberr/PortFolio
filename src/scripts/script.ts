@@ -1,8 +1,8 @@
+
 document.addEventListener("DOMContentLoaded", () => {
-    console.log($)
     //clique sur l'entete
     $('li ').on('click', function () {
-        let sectionName = $(this).find('a').attr('href');
+        let sectionName : string = $(this).find('a').attr('href') ?? "";
         if (sectionName) {
             showPanel(sectionName)
         }
@@ -26,6 +26,25 @@ document.addEventListener("DOMContentLoaded", () => {
         $('#button-img').css('opacity','0')
         
     })
+    $('.program_card').on('mouseover',function(){
+        let textToShow : string = $(this).find('img').attr('texttoshow') ?? ""
+        $(this).css({
+            'filter' : 'blur(4px)'
+        })
+
+        let divtoshow : JQuery = $(`<p class="temp-text">${textToShow}</p>`)
+        divtoshow.css({
+            'position' : 'absolute',
+            'color': 'red',
+            'filter' : 'none',
+            'text-align' : 'center'
+        })
+        $(this).append(divtoshow)
+    })
+     $('.program_card').on('mouseout',function(){
+ 
+        $(".temp-text").remove()
+    })
     
 })
 
@@ -33,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Gestion de l'affichage du panel avec le texte.
 function showPanel(currentID: string) {
-    const body = $('body');
+    const body : JQuery = $('body');
     const content: JQuery = $(currentID).find('.section-to-show');
     const overlay : JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
     overlay.find(".content-section").append(content.html());
