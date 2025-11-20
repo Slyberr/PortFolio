@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     //clique sur l'entete
     $('li ').on('click', function () {
-        let sectionName : string = $(this).find('a').attr('href') ?? "";
+        let sectionName: string = $(this).find('a').attr('href') ?? "";
         if (sectionName) {
             showPanel(sectionName)
         }
@@ -18,50 +18,48 @@ document.addEventListener("DOMContentLoaded", () => {
         showPanel('#' + $(this).attr('id'))
     })
 
-    $('#container-louis-pic').on('mouseover', function() {
-        $('#button-img').css('opacity','1')
-        
-    })
-    $('#container-louis-pic').on('mouseout', function() {
-        $('#button-img').css('opacity','0')
-        
-    })
-    $('.program_card').on('mouseover',function(){
-        let textToShow : string = $(this).find('img').attr('texttoshow') ?? ""
-        $(this).css({
-            'filter' : 'blur(4px)'
-        })
+    $('#container-louis-pic').on('mouseover', function () {
+        $('#button-img').css('opacity', '1')
 
-        let divtoshow : JQuery = $(`<p class="temp-text">${textToShow}</p>`)
-        divtoshow.css({
-            'position' : 'absolute',
-            'color': 'red',
-            'filter' : 'none',
-            'text-align' : 'center'
-        })
-        $(this).append(divtoshow)
     })
-     $('.program_card').on('mouseout',function(){
- 
-        $(".temp-text").remove()
+    $('#container-louis-pic').on('mouseout', function () {
+        $('#button-img').css('opacity', '0')
+
     })
-    
+    $('.program_card').on('mouseenter', function () {
+        let textToShow: string = $(this).find('img').attr('texttoshow') ?? "";
+        let parent : JQuery = $(this).closest('.box-skills').find('p');
+
+
+        $(this).closest('.box-skills').find('p').text(`${parent?.text()} = ${textToShow}`)
+        
+    })
+
+    $('.program_card').on('mouseleave', function () {
+        let parent : JQuery = $(this).closest('.box-skills').find('p');
+        let text : string = parent.text() ?? "";
+        let newtext : RegExpMatchArray|null = text.match(/^[^=]+/);
+        if(newtext != null){
+            $(this).closest('.box-skills').find('p').text(newtext[0]);
+        }
+    })
+
 })
 
 
 
 //Gestion de l'affichage du panel avec le texte.
 function showPanel(currentID: string) {
-    const body : JQuery = $('body');
+    const body: JQuery = $('body');
     const content: JQuery = $(currentID).find('.section-to-show');
-    const overlay : JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
+    const overlay: JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
     overlay.find(".content-section").append(content.html());
 
     body.append(overlay)
 
     //apparition du panel
     overlay.fadeIn();
-    collapsePanel(body,overlay)  
+    collapsePanel(body, overlay)
 };
 
 //Gestion du mode clair/sombre
@@ -96,13 +94,13 @@ function isBrightTheme() {
 };
 
 //Gestion de la fermeture du panel
-function collapsePanel(body: JQuery<HTMLElement>,overlay: JQuery<HTMLElement>){
+function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) {
 
     //on ajoute un event sur le bouton fermer pour supprimer le panel + overlay
     $('#image-retour').on('click', function () {
         //animation de disparition du panel
         overlay.fadeOut(function () {
-            body.off('keydown.panel'); 
+            body.off('keydown.panel');
             overlay.remove();
         })
         body.css({
@@ -112,7 +110,7 @@ function collapsePanel(body: JQuery<HTMLElement>,overlay: JQuery<HTMLElement>){
     })
 
     body.on('keydown.panel', function (event) {
-        
+
         if (event.key === "Escape") {
             $('#image-retour').trigger('click');
         }
@@ -120,9 +118,9 @@ function collapsePanel(body: JQuery<HTMLElement>,overlay: JQuery<HTMLElement>){
     });
 
     //fermer le panel si le click est sur l'overlay exclusivement
-    $(overlay).on('click', function(event) {
+    $(overlay).on('click', function (event) {
 
-        if (event.target === this){
+        if (event.target === this) {
             $('#image-retour').trigger('click')
         }
 
