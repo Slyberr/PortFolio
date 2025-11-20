@@ -88,7 +88,7 @@
 
                         //position de la barre
                         position: absolute;
-                        content: "test";
+                        content: "";
                         bottom: 0;
                         left: 0;
                         width: 100%;
@@ -282,7 +282,7 @@
 
     }
 
-    .box-languages {
+    .box-skills {
         display: flex;
         flex-direction: column;
         margin: 0 20% 0 20%;
@@ -303,10 +303,14 @@
                 width: 150px;
                 height: 150px;
                 
-
                 img {
                     width:100%;
+                    transition: width 0.5s;
+                    &:hover{
+                        width:110%;
+                    }
                 }
+                
             }
             
         }
