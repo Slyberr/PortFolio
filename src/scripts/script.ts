@@ -13,6 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
         changeBrightMode($(this));
     })
 
+    $('#slogan_portefolio').on('mouseenter',function() {
+        $(this).text('Seule la librarie Jquery à été utilisée.')
+    })
+    $('#slogan_portefolio').on('mouseleave',function() {
+        $(this).text('Un PorteFolio fait main de A à Z.')
+    })
+
     //lors du clique sur une division à découvrir text
     $('.sub-division').on('click', function () {
         showPanel('#' + $(this).attr('id'))
@@ -22,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         $('#button-img').css('opacity', '1')
 
     })
-    $('#container-louis-pic').on('mouseout', function () {
+    $('#container-louis-pic').on('mouseleave', function () {
         $('#button-img').css('opacity', '0')
 
     })
