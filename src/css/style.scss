@@ -171,43 +171,51 @@
     .labelsNom {
         display: flex;
         flex-direction: column;
-        transition: color 0.5s;
-        text-align: center;
-        align-self: center;
 
-        &:hover {
-            color: rgba(0, 0, 0, 0.532);
+        #LouisPLabel {
+            position: relative;
+            font-size: 100px;
+            margin-bottom: 15px;
+            margin-top: 0;
+            color: var(--simpleText);
+
+
         }
-    }
-
-    #LouisPLabel {
-        position: relative;
-        font-size: 100px;
-        margin-bottom: 15px;
-        margin-top: 0;
-        color: var(--simpleText);
+        #slogan_portefolio {
+            position: relative;
+        }
 
         //ajout de la barre de soulignement
-        &:hover::after {
+        #LouisPLabel,
+        #slogan_portefolio {
+            &:hover::after {
 
-            //position de la barre
-            position: absolute;
-            content: "";
-            bottom: 0;
-            left: 0;
-            margin: 0 5px 0 5px;
-            width: 95%;
+                //position de la barre
+                position: absolute;
+                content: "";
+                bottom: -5px;
+                left: 0;
+                margin: 0 5px 0 5px;
+                width: 95%;
 
-            //style de la barre
-            min-height: 7px;
-            background: var(--gradient-color1);
+                //style de la barre
+                min-height: 7px;
+                background: var(--gradient-color1);
 
-            //animation de la barre
-            transform: scaleX(0) translateX(0);
-            transform-origin: left;
-            animation: PointToBar 0.7s ease;
+                //animation de la barre
+                transform: scaleX(0) translateX(0);
+                transform-origin: left;
+                animation: PointToBar 0.7s ease;
+            }
+
+
         }
+
+        
+
+
     }
+
 
 
     #describ_Louis_label {
@@ -236,16 +244,15 @@
         margin: 10px;
         padding: 15px;
         border-radius: 10px;
-        border: 3px black solid;
         width: 400px;
         min-height: 100px;
         color: var(--text-inBoxfont);
         background-color: var(--bgBox);
         z-index: 0;
-        transition: font-size 0.6s ease;
+        transition: font-size 0.6s;
 
         &:hover {
-            font-size: 21px;
+            font-size: 24px;
         }
 
         &::before {
@@ -288,33 +295,49 @@
         margin: 0 20% 0 20%;
         font-size: 35px;
         text-align: center;
+        z-index: -1;
 
         .cards-container {
+            position: relative;
             display: flex;
             justify-content: space-around;
             padding: 10px;
             flex-wrap: wrap;
             gap: 50px;
-            background-color: rgb(75, 74, 74);
+            background-color: black;
             border-radius: 20px;
+            &::before{
+                content:"";
+                position:absolute;
+                inset:0;
+                background-image: url('../images/code.gif');
+                background-size: cover;
+                filter:blur(4px);
+                opacity: 0.5;
+                z-index: 1;
+            }
+            
+
             .program_card {
                 display: flex;
                 align-items: center;
                 width: 150px;
                 height: 150px;
-                
+                z-index: 2;
+
                 img {
-                    width:100%;
+                    width: 100%;
                     transition: width 0.5s;
-                    &:hover{
-                        width:110%;
+
+                    &:hover {
+                        width: 110%;
                     }
                 }
-                
+
             }
-            
+
         }
-        
+
     }
 
 
