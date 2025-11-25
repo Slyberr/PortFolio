@@ -33,9 +33,10 @@ function containerPresentation() {
 
 
     $('#slogan_portefolio').on('mouseenter', function () {
-        $(this).text('Seule la librarie Jquery à été utilisée.');
+        $(this).text('Un PorteFolio fait main de A à Z. Avec JQuery comme unique bibliothèque.');
     })
     $('#slogan_portefolio').on('mouseleave', function () {
+
         $(this).text('Un PorteFolio fait main de A à Z.');
     })
 
@@ -133,7 +134,7 @@ function showAndLogicPanel(currentID: string) {
     //Transition d'affichage du panel
     overlay.fadeIn();
 
-    EventsListenersForPanel(body,overlay);
+    EventsListenersForPanel(body, overlay);
 };
 
 
@@ -141,19 +142,32 @@ function showAndLogicPanel(currentID: string) {
 //Logique métier du panel
 function EventsListenersForPanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) {
 
-    overlay.find('.title-section-to-show').on("click", function () {
-        let contentToShow  = $(this).next()
+    overlay.find('.container-title-img').on("click", function () {
+        let contentToShow = $(this).next()
 
+        //J'avoue avoir utilisé Jquery pour cette apparition de texte, main honnêtement c'est vraiment long à faire.
         if (contentToShow.css('display') === 'none') {
-            contentToShow.css('display', 'block')
-        } else { 
-            contentToShow.css('display', 'none')
+            contentToShow.slideDown()
+            $(this).children('img').removeClass('animate');
+
+        } else {
+            contentToShow.slideUp()
         }
-        
+
+    })
+
+    overlay.find('.container-title-img').on("mouseenter", function () {
+
+        $(this).children('img').addClass('animate');
+
+    })
+    overlay.find('container-title-img').on("mouseleave", function () {
+
+        $(this).children('img').removeClass('animate');
     })
 
     //Gérer la fermeture du panel
-    collapsePanel(body,overlay)
+    collapsePanel(body, overlay)
 }
 
 //Gestion de la fermeture du panel
