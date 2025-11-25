@@ -54,6 +54,7 @@
     --simpleText: rgb(0, 0, 0);
     --bgBox: black;
     --gradient-color1: linear-gradient(to right, darkviolet, rgb(0, 191, 255));
+    --hover-color1: rgb(0, 191, 255);
 
     body {
 
@@ -80,7 +81,7 @@
                     position: relative;
 
                     &:hover {
-                        color: rgb(0, 191, 255);
+                        color: var(--hover-color1);
                         transition: 0.2s;
                     }
 
@@ -181,6 +182,7 @@
 
 
         }
+
         #slogan_portefolio {
             position: relative;
         }
@@ -211,7 +213,7 @@
 
         }
 
-        
+
 
 
     }
@@ -228,7 +230,6 @@
     .subs-divisions {
         display: flex;
         justify-content: center;
-        align-items: center;
         flex-wrap: wrap;
         gap: 5%;
         max-width: 1000px;
@@ -239,6 +240,7 @@
         display: flex;
         position: relative;
         justify-content: center;
+        text-align: center;
         align-items: center;
         font-size: 20px;
         margin: 10px;
@@ -295,28 +297,29 @@
         margin: 0 20% 0 20%;
         font-size: 35px;
         text-align: center;
-        z-index: -1;
+        z-index: 0;
 
         .cards-container {
             position: relative;
             display: flex;
             justify-content: space-around;
-            padding: 10px;
+            padding: 25px;
             flex-wrap: wrap;
             gap: 50px;
-            background-color: black;
+            background-color: rgb(34, 34, 34);
             border-radius: 20px;
-            &::before{
-                content:"";
-                position:absolute;
-                inset:0;
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
                 background-image: url('../images/code.gif');
                 background-size: cover;
-                filter:blur(4px);
-                opacity: 0.5;
+                filter: blur(4px);
+                opacity: 0.2;
                 z-index: 1;
             }
-            
+
 
             .program_card {
                 display: flex;
@@ -327,10 +330,10 @@
 
                 img {
                     width: 100%;
-                    transition: width 0.5s;
+                    transition: transform 0.5s;
 
                     &:hover {
-                        width: 110%;
+                        transform: scale(1.2);
                     }
                 }
 
@@ -345,6 +348,7 @@
 
     //style complet du panel
     .overlay {
+        z-index: 100;
         display: none;
         justify-content: center;
         align-items: center;
@@ -364,6 +368,38 @@
         bottom: 25%;
         margin: 0 20%;
 
+
+        overflow-y: scroll;
+        scrollbar-color: black darkviolet;
+
+        color: var(--text-inBoxfont);
+        background-color: var(--bgBox);
+        border-radius: 15px;
+        animation-name: slideIn;
+        animation-duration: 0.5s;
+
+        .container-title-img {
+            display:flex;
+        }
+
+        .text-section-to-show {
+            display: none;
+
+        }
+
+        .content-section {
+            text-align: justify;
+            padding: 40px;
+            font-size: 20px
+        }
+
+        #image-retour {
+            max-width: 25px;
+            padding-top: 15px;
+            padding-left: 15px;
+        }
+
+
         @media (max-width : 1100px) {
             margin: 0 20px;
         }
@@ -373,26 +409,6 @@
             bottom: 20px;
         }
 
-        overflow-y: scroll;
-        scrollbar-color: darkviolet black;
-
-        color: var(--text-inBoxfont);
-        background-color: var(--bgBox);
-        border-radius: 15px;
-        animation-name: slideIn;
-        animation-duration: 0.5s;
-
-        &>.content-section {
-            text-align: justify;
-            padding: 20px;
-            font-size: 20px
-        }
-
-        #image-retour {
-            max-width: 25px;
-            padding-top: 15px;
-            padding-left: 15px;
-        }
 
     }
 

@@ -1,79 +1,93 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    //clique sur l'entete
-    $('li ').on('click', function () {
-        let sectionName: string = $(this).find('a').attr('href') ?? "";
-        if (sectionName) {
-            showPanel(sectionName)
-        }
-    })
 
-    //lors du clique sur l'icone pour changer le thème
-    $('#iconColorMode').on('click', function () {
-        changeBrightMode($(this));
-    })
-
-    $('#slogan_portefolio').on('mouseenter',function() {
-        $(this).text('Seule la librarie Jquery à été utilisée.')
-    })
-    $('#slogan_portefolio').on('mouseleave',function() {
-        $(this).text('Un PorteFolio fait main de A à Z.')
-    })
-
-    //lors du clique sur une division à découvrir text
-    $('.sub-division').on('click', function () {
-        showPanel('#' + $(this).attr('id'))
-    })
-
-    $('#container-louis-pic').on('mouseover', function () {
-        $('#button-img').css('opacity', '1')
-
-    })
-    $('#container-louis-pic').on('mouseleave', function () {
-        $('#button-img').css('opacity', '0')
-
-    })
-    $('.program_card').on('mouseenter', function () {
-        let textToShow: string = $(this).find('img').attr('texttoshow') ?? "";
-        let parent : JQuery = $(this).closest('.box-skills').find('p');
-
-
-        $(this).closest('.box-skills').find('p').text(`${parent?.text()} = ${textToShow}`)
-        
-    })
-
-    $('.program_card').on('mouseleave', function () {
-        let parent : JQuery = $(this).closest('.box-skills').find('p');
-        let text : string = parent.text() ?? "";
-        let newtext : RegExpMatchArray|null = text.match(/^[^=]+/);
-        if(newtext != null){
-            $(this).closest('.box-skills').find('p').text(newtext[0]);
-        }
-    })
+    headerGestion();
+    containerPresentation();
+    programsCardsPresentation();
+    PanelGestion();
 
 })
 
+//Gestion de l'entête
+function headerGestion() {
+
+    //Cliquer sur une section de l'entête
+    $('li ').on('click', function () {
+
+        let sectionName: string = $(this).find('a').attr('href') ?? "";
+
+        if (sectionName) {
+            showAndLogicPanel(sectionName);
+        }
+
+    })
+
+    //Logique métier du changement de couleur de préférence.
+    $('#iconColorMode').on('click', function () {
+        changeBrightMode($(this));
+    })
+}
+
+//Gestion du container d'accueil (dynamique du nom, de l'image..)
+function containerPresentation() {
 
 
-//Gestion de l'affichage du panel avec le texte.
-function showPanel(currentID: string) {
-    const body: JQuery = $('body');
-    const content: JQuery = $(currentID).find('.section-to-show');
-    const overlay: JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
-    overlay.find(".content-section").append(content.html());
+    $('#slogan_portefolio').on('mouseenter', function () {
+        $(this).text('Seule la librarie Jquery à été utilisée.');
+    })
+    $('#slogan_portefolio').on('mouseleave', function () {
+        $(this).text('Un PorteFolio fait main de A à Z.');
+    })
 
-    body.append(overlay)
+    $('#container-louis-pic').on('mouseover', function () {
+        $('#button-img').css('opacity', '1');
 
-    //apparition du panel
-    overlay.fadeIn();
-    collapsePanel(body, overlay)
-};
+    })
+    $('#container-louis-pic').on('mouseleave', function () {
+        $('#button-img').css('opacity', '0');
+
+    })
+}
+
+//Gestion des conteneurs des images avec les langages, les frameworks et outils.
+function programsCardsPresentation() {
+
+    $('.program_card').on('mouseenter', function () {
+        let textToShow: string = $(this).find('img').attr('texttoshow') ?? "";
+        let parent: JQuery = $(this).closest('.box-skills').find('p');
+
+        $(this).closest('.box-skills').find('p').text(`${parent?.text()} = ${textToShow}`);
+
+    })
+
+    $('.program_card').on('mouseleave', function () {
+
+        let parent: JQuery = $(this).closest('.box-skills').find('p');
+        let text: string = parent.text() ?? "";
+        let newtext: RegExpMatchArray | null = text.match(/^[^=]+/);
+
+        if (newtext != null) {
+            $(this).closest('.box-skills').find('p').text(newtext[0]);
+        }
+
+    })
+
+}
+
+//Logique métier du panel 
+function PanelGestion() {
+    $('.sub-division').on('click', function () {
+        showAndLogicPanel('#' + $(this).attr('id'));
+    })
+}
+
 
 //Gestion du mode clair/sombre
 function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
     if (!isBrightTheme()) {
-        actualIcon.attr("isBright", "true")
-        actualIcon.attr("src", "../images/icon_site/sun.svg")
+
+        actualIcon.attr("isBright", "true");
+        actualIcon.attr("src", "../images/icon_site/sun.svg");
         //changement des couleurs définies dans root.
         $(':root').css({
             '--bg': 'whitesmoke',
@@ -81,17 +95,19 @@ function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
             '--text-inHeadFont': 'white',
             '--simpleText': 'black',
             '--bgBox': 'black',
-        })
+        });
+
     } else {
-        actualIcon.attr("isBright", "false")
-        actualIcon.attr("src", "../images/icon_site/moon.svg")
+
+        actualIcon.attr("isBright", "false");
+        actualIcon.attr("src", "../images/icon_site/moon.svg");
         $(':root').css({
             '--bg': 'black',
             '--text-inBoxfont': 'whitesmoke',
             '--text-inHeadFont': 'whitesmoke',
             '--simpleText': 'white',
             '--bgBox': '#0E202E',
-        })
+        });
     }
 };
 
@@ -99,6 +115,46 @@ function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
 function isBrightTheme() {
     return $('#iconColorMode').attr('isBright') === "true";
 };
+
+
+//Gestion de l'affichage du panel avec le texte dédié.
+function showAndLogicPanel(currentID: string) {
+
+    const body: JQuery = $('body');
+    const content: JQuery = $(currentID).find('.section-to-show');
+    const overlay: JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='../images/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
+
+    overlay.find(".content-section").append(content.html());
+
+    //ajout du panel à la page et blocage du scoll du body
+    body.append(overlay);
+    body.css("overflow", "hidden");
+
+    //Transition d'affichage du panel
+    overlay.fadeIn();
+
+    EventsListenersForPanel(body,overlay);
+};
+
+
+
+//Logique métier du panel
+function EventsListenersForPanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) {
+
+    overlay.find('.title-section-to-show').on("click", function () {
+        let contentToShow  = $(this).next()
+
+        if (contentToShow.css('display') === 'none') {
+            contentToShow.css('display', 'block')
+        } else { 
+            contentToShow.css('display', 'none')
+        }
+        
+    })
+
+    //Gérer la fermeture du panel
+    collapsePanel(body,overlay)
+}
 
 //Gestion de la fermeture du panel
 function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) {
@@ -116,6 +172,7 @@ function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) 
 
     })
 
+    //On sort du panel si on clique sur échap
     body.on('keydown.panel', function (event) {
 
         if (event.key === "Escape") {
@@ -124,13 +181,12 @@ function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) 
 
     });
 
-    //fermer le panel si le click est sur l'overlay exclusivement
+    //On sort du panel si le click est sur l'overlay exclusivement
     $(overlay).on('click', function (event) {
 
         if (event.target === this) {
-            $('#image-retour').trigger('click')
+            $('#image-retour').trigger('click');
         }
 
     });
 };
-
