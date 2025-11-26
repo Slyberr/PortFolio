@@ -142,29 +142,8 @@ function showAndLogicPanel(currentID: string) {
 //Logique métier du panel
 function EventsListenersForPanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) {
 
-    overlay.find('.container-title-img').on("click", function () {
-        let contentToShow = $(this).next()
-
-        //J'avoue avoir utilisé Jquery pour cette apparition de texte, main honnêtement c'est vraiment long à faire.
-        if (contentToShow.css('display') === 'none') {
-            contentToShow.slideDown()
-            $(this).children('img').removeClass('animate');
-
-        } else {
-            contentToShow.slideUp()
-        }
-
-    })
-
-    overlay.find('.container-title-img').on("mouseenter", function () {
-
-        $(this).children('img').addClass('animate');
-
-    })
-    overlay.find('container-title-img').on("mouseleave", function () {
-
-        $(this).children('img').removeClass('animate');
-    })
+    //La flèche à côté d'un texte de section dans la présentation.
+    arrowDiscoverOrHide(overlay)
 
     //Gérer la fermeture du panel
     collapsePanel(body, overlay)
@@ -204,3 +183,48 @@ function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) 
 
     });
 };
+
+function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
+
+
+
+    overlay.find('.container-title-img').on("click", function () {
+
+        let contentToShow = $(this).next(".text-section-to-show")
+
+        if (contentToShow.css('display') === 'none') {
+
+            //Je n'ai pas fait slideDown() et slideUp() à la main, c'est trop long et sans doute moins performant.
+            contentToShow.slideDown()
+            
+            $(this).find('.animate').css('animation', 'arrowHoverTitleReverse 0.5s infinite');
+
+        } else {
+            $(this).children('img').css('transform', 'rotate(0deg)');
+            contentToShow.slideUp()
+            
+            $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');
+            
+        }
+
+    })
+
+    overlay.find('.container-title-img').on("mouseenter", function () {
+
+        $(this).children('img').addClass('animate');
+        if ($(this).next(".text-section-to-show").css('display') !== 'none') {
+            $(this).find('.animate').css('animation', 'arrowHoverTitleReverse 0.5s infinite');
+        }
+
+
+    })
+    overlay.find('.container-title-img').on("mouseleave", function () {
+
+        $(this).children('img').removeClass('animate');
+        $(this).children('img').removeAttr('style');
+
+        if ($(this).next(".text-section-to-show").css('display') !== 'none') {
+            $(this).children('img').css('transform', 'rotate(180deg)');
+        }
+    })
+}

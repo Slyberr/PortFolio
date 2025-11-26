@@ -45,14 +45,24 @@
     }
 }
 
-//test
-@keyframes arrowClickOnSection {
+@keyframes arrowHoverTitle {
     0% {
         transform: translateY(0px);
     }
 
     100% {
         transform: translateY(5px);
+    }
+}
+
+@keyframes arrowHoverTitleReverse {
+    0% {
+        
+        transform: translateY(5px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(180deg);
     }
 }
 
@@ -378,9 +388,10 @@
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 25%;
-        bottom: 25%;
+        top: 15%;
+        bottom: 45%;
         margin: 0 20%;
+        min-width: 60%;
 
 
         overflow-y: scroll;
@@ -399,10 +410,10 @@
                 padding: 5px;
                 margin-top: -4px;
                 align-self: center;
-                transition: transform 1s;
+                transition: transform 0.5s;
 
                 &.animate {
-                    animation: arrowClickOnSection 0.5s infinite;
+                    animation: arrowHoverTitle 0.5s infinite;
                 }
             }
         }
@@ -427,6 +438,7 @@
 
         @media (max-width : 1100px) {
             margin: 0 20px;
+            min-width: 80%;
         }
 
         @media (max-height : 600px) {
