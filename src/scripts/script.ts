@@ -33,7 +33,12 @@ function containerPresentation() {
 
 
     $('#slogan_portefolio').on('mouseenter', function () {
-        $(this).text('Un PorteFolio fait main de A à Z. Avec JQuery comme unique bibliothèque.');
+        $(this).html('Un PorteFolio fait main de A à Z. <i><u class="textadded"onhover="color:blue">En savoir plus</u></i>');
+        
+        $('.textadded').on('click',function() {
+            window.alert('Technologies : HTML5/CSS3/TypeScript/SCSS.\n\nCe portefolio a été réalisé avec Jquery comme unique bibliothèque pour simplifier la manipulation du DOM.\n\n "slideUp()" et "slideDown()"  de cette dernière sont les seules fonctions utilisées dans un but esthétique.')
+        })
+    
     })
     $('#slogan_portefolio').on('mouseleave', function () {
 
@@ -159,9 +164,14 @@ function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) 
             body.off('keydown.panel');
             overlay.remove();
         })
-        body.css({
+
+        //Pour éviter que le texte du panel se décale un peu en disparaissant.
+        setTimeout(()=>{
+            body.css({
             'overflow': 'auto'
         })
+        },350)
+        
 
     })
 
@@ -214,6 +224,8 @@ function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
         $(this).children('img').addClass('animate');
         if ($(this).next(".text-section-to-show").css('display') !== 'none') {
             $(this).find('.animate').css('animation', 'arrowHoverTitleReverse 0.5s infinite');
+        }else{
+            $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');
         }
 
 
