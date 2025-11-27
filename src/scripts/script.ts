@@ -36,7 +36,7 @@ function containerPresentation() {
         $(this).html('Un PorteFolio fait main de A à Z. <i><u class="textadded"onhover="color:blue">En savoir plus</u></i>');
         
         $('.textadded').on('click',function() {
-            window.alert('Technologies : HTML5/CSS3/TypeScript/SCSS.\n\nCe portefolio a été réalisé avec Jquery comme unique bibliothèque pour simplifier la manipulation du DOM.\n\n "slideUp()" et "slideDown()"  de cette dernière sont les seules fonctions utilisées dans un but esthétique.')
+            window.alert('Technologies : HTML5/CSS3/TypeScript/SCSS et node.js pour gérer TS et SCSS.\n\nCe portefolio a été réalisé avec Jquery comme unique bibliothèque pour simplifier la manipulation du DOM.\n\n "slideUp()" et "slideDown()"  de cette dernière sont les seules fonctions utilisées dans un but esthétique.')
         })
     
     })
