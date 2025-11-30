@@ -4,8 +4,9 @@
     "module": "ESNext",
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "./dist",
+    "rootDir": "./src/ts",
+    "outDir": "./src/scripts",
     "allowJs": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/ts/**/*.ts"]
 }
