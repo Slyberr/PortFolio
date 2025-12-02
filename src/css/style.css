@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+@keyframes slideIn {
+  from {
+    transform: translateY(1000px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+@keyframes PointToBar {
+  0% {
+    transform: scaleX(0);
+  }
+  30% {
+    transform: scaleX(1);
+    opacity: 1;
+    transform-origin: left;
+  }
+  31% {
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+@keyframes arrowHoverTitle {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+@keyframes arrowHoverTitleReverse {
+  0% {
+    transform: translateY(5px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(180deg);
+  }
+}
+:root {
+  --bg: whitesmoke;
+  --text-inBoxfont: white;
+  --text-inHeadFont: white;
+  --simpleText: rgb(0, 0, 0);
+  --bgBox: black;
+  --gradient-color1: linear-gradient(to right, darkviolet, rgb(0, 191, 255));
+  --gradient-color2: linear-gradient(to left, var(--bgBox),rgb(90, 48, 81));
+  --hover-color1: rgb(0, 191, 255);
+}
+:root body {
+  transition: background-color 0.5s;
+  margin: 0;
+  font-family: "League Spartan";
+  background-color: var(--bg);
+  color: var(--simpleText);
+}
+:root body header {
+  color: var(--text-inHeadFont);
+  background-color: var(--bgBox);
+}
+:root body header > nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+:root body header > nav > ul > li {
+  position: relative;
+}
+:root body header > nav > ul > li:hover {
+  color: var(--hover-color1);
+  transition: 0.2s;
+}
+:root body header > nav > ul > li:hover::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 4px;
+  background: var(--gradient-color1);
+  transform: scaleX(0) translateX(0);
+  transform-origin: left;
+  animation: PointToBar 0.7s ease;
+}
+:root body a {
+  text-decoration: none;
+  color: var(--text-inHeadFont);
+  font-size: 20px;
+}
+:root body u:hover {
+  color: rgb(105, 105, 105);
+}
+:root body #gridPresentations {
+  display: grid;
+  grid-template-columns: 2fr 5fr 2fr;
+  margin: 25px;
+}
+:root body .Box_Nom {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 10px;
+  grid-column: 2;
+  gap: 100px;
+}
+:root body .Box_Nom #container-louis-pic > #louis-pic {
+  max-width: 300px;
+  border-radius: 15px;
+  transition: filter 0.5s;
+}
+:root body .Box_Nom #container-louis-pic:hover #louis-pic {
+  filter: blur(4px);
+}
+:root body .Box_Nom #container-louis-pic > #button-img {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0;
+  position: relative;
+  top: -160px;
+  left: 60px;
+  transition: opacity 0.5s;
+  border-radius: 6px;
+  border: whitesmoke 1px solid;
+  font-size: 20px;
+  color: var(--text-inBoxfont);
+  background-color: var(--bgBox);
+  transition: background-color 0.5s, opacity 0.5s;
+}
+:root body .Box_Nom #container-louis-pic > #button-img:hover {
+  background-color: rgb(32, 160, 202);
+}
+:root .labelsNom {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+:root .labelsNom #LouisPLabel {
+  position: relative;
+  font-size: 100px;
+  margin-bottom: 15px;
+  margin-top: 0;
+  color: var(--simpleText);
+}
+:root .labelsNom #slogan_portefolio {
+  position: relative;
+  max-width: 350px;
+  min-height: 90px;
+}
+:root .labelsNom #LouisPLabel:hover::after,
+:root .labelsNom #slogan_portefolio:hover::after {
+  position: absolute;
+  content: "";
+  bottom: -5px;
+  left: 0;
+  margin: 0 5px 0 5px;
+  width: 95%;
+  min-height: 7px;
+  background: var(--gradient-color1);
+  transform: scaleX(0) translateX(0);
+  transform-origin: left;
+  animation: PointToBar 0.7s ease;
+}
+:root #describ_Louis_label {
+  margin: 0;
+  font-size: 30px;
+  color: var(--simpleText);
+}
+:root .subs-divisions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5%;
+  max-width: 1000px;
+  margin: 10% auto 0% auto;
+}
+:root .sub-division {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 20px;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  width: 400px;
+  min-height: 100px;
+  color: var(--text-inBoxfont);
+  background-color: var(--bgBox);
+  z-index: 0;
+  transition: font-size 0.6s;
+}
+:root .sub-division:hover {
+  font-size: 24px;
+}
+:root .sub-division::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-color1);
+  border-radius: 10px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 400ms ease-in-out;
+  z-index: -1;
+}
+:root .sub-division:hover::before {
+  transform: scale(1);
+}
+:root .sub-division .div-contact {
+  display: flex;
+  justify-content: space-between;
+}
+:root .sub-division .div-contact img {
+  width: 10%;
+}
+:root .box-skills {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20% 0 20%;
+  font-size: 35px;
+  text-align: center;
+  z-index: 0;
+}
+:root .box-skills .cards-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+  flex-wrap: wrap;
+  gap: 50px;
+  background-color: rgb(34, 34, 34);
+  border-radius: 20px;
+  background: var(--gradient-color2);
+}
+:root .box-skills .cards-container .program_card {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+}
+:root .box-skills .cards-container .program_card img {
+  width: 100%;
+  transition: transform 0.5s;
+}
+:root .box-skills .cards-container .program_card img:hover {
+  transform: scale(1.2);
+}
+:root .overlay {
+  z-index: 100;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+:root .temp-panel {
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15%;
+  bottom: 45%;
+  margin: 0 20%;
+  min-width: 60%;
+  overflow-y: scroll;
+  scrollbar-color: black darkviolet;
+  color: var(--text-inBoxfont);
+  background-color: var(--bgBox);
+  border-radius: 15px;
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+}
+:root .temp-panel .container-title-img {
+  display: flex;
+}
+:root .temp-panel .container-title-img img {
+  padding: 5px;
+  margin-top: -4px;
+  align-self: center;
+  transition: transform 0.5s;
+}
+:root .temp-panel .text-section-to-show {
+  display: none;
+}
+:root .temp-panel .content-section {
+  text-align: justify;
+  line-height: 1.5;
+  padding: 40px;
+  font-size: 20px;
+}
+:root .temp-panel #image-retour {
+  max-width: 25px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+@media (max-width: 1100px) {
+  :root .temp-panel {
+    margin: 0 20px;
+    min-width: 96%;
+  }
+}
+@media (max-width: 900px) {
+  :root .temp-panel {
+    margin: 0 20px;
+    min-width: 80%;
+  }
+}
+@media (max-height: 800px) {
+  :root .temp-panel {
+    top: 20px;
+    bottom: 20px;
+  }
+}
+:root footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--bgBox);
+  margin-top: 20px;
+  color: var(--text-inBoxfont);
+}
+
+/*# sourceMappingURL=style.css.map */
