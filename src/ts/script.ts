@@ -32,7 +32,7 @@ function headerGestion() {
 function containerPresentation() {
 
 
-    $('#slogan_portefolio').on('mouseenter', function () {
+    $('#slogan-portefolio').on('mouseenter', function () {
         $(this).html('Un PorteFolio fait main de A à Z. <i><u class="textadded"onhover="color:blue">En savoir plus</u></i>');
         
         $('.textadded').on('click',function() {
@@ -40,7 +40,7 @@ function containerPresentation() {
         })
     
     })
-    $('#slogan_portefolio').on('mouseleave', function () {
+    $('#slogan-portefolio').on('mouseleave', function () {
 
         $(this).text('Un PorteFolio fait main de A à Z.');
     })
@@ -58,7 +58,7 @@ function containerPresentation() {
 //Gestion des conteneurs des images avec les langages, les frameworks et outils.
 function programsCardsPresentation() {
 
-    $('.program_card').on('mouseenter', function () {
+    $('.program-card').on('mouseenter', function () {
         let textToShow: string = $(this).find('img').attr('texttoshow') ?? "";
         let parent: JQuery = $(this).closest('.box-skills').find('p');
 
@@ -66,7 +66,7 @@ function programsCardsPresentation() {
 
     })
 
-    $('.program_card').on('mouseleave', function () {
+    $('.program-card').on('mouseleave', function () {
 
         let parent: JQuery = $(this).closest('.box-skills').find('p');
         let text: string = parent.text() ?? "";
@@ -205,13 +205,13 @@ function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
         if (contentToShow.css('display') === 'none') {
 
             //Je n'ai pas fait slideDown() et slideUp() à la main, c'est trop long et sans doute moins performant.
-            contentToShow.slideDown()
+            contentToShow.slideDown(600)
             
             $(this).find('.animate').css('animation', 'arrowHoverTitleReverse 0.5s infinite');
 
         } else {
             $(this).children('img').css('transform', 'rotate(0deg)');
-            contentToShow.slideUp()
+            contentToShow.slideUp(600)
             
             $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');
             

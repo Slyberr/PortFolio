@@ -22,13 +22,13 @@ function headerGestion() {
 }
 //Gestion du container d'accueil (dynamique du nom, de l'image..)
 function containerPresentation() {
-    $('#slogan_portefolio').on('mouseenter', function () {
+    $('#slogan-portefolio').on('mouseenter', function () {
         $(this).html('Un PorteFolio fait main de A à Z. <i><u class="textadded"onhover="color:blue">En savoir plus</u></i>');
         $('.textadded').on('click', function () {
             window.alert('Technologies : HTML5/CSS3/TypeScript/SCSS et node.js pour gérer TS et SCSS.\n\nCe portefolio a été réalisé avec Jquery comme unique bibliothèque pour simplifier la manipulation du DOM.\n\n "slideUp()" et "slideDown()"  de cette dernière sont les seules fonctions utilisées dans un but esthétique.');
         });
     });
-    $('#slogan_portefolio').on('mouseleave', function () {
+    $('#slogan-portefolio').on('mouseleave', function () {
         $(this).text('Un PorteFolio fait main de A à Z.');
     });
     $('#container-louis-pic').on('mouseover', function () {
@@ -40,13 +40,13 @@ function containerPresentation() {
 }
 //Gestion des conteneurs des images avec les langages, les frameworks et outils.
 function programsCardsPresentation() {
-    $('.program_card').on('mouseenter', function () {
+    $('.program-card').on('mouseenter', function () {
         var _a;
         var textToShow = (_a = $(this).find('img').attr('texttoshow')) !== null && _a !== void 0 ? _a : "";
         var parent = $(this).closest('.box-skills').find('p');
         $(this).closest('.box-skills').find('p').text("".concat(parent === null || parent === void 0 ? void 0 : parent.text(), " = ").concat(textToShow));
     });
-    $('.program_card').on('mouseleave', function () {
+    $('.program-card').on('mouseleave', function () {
         var _a;
         var parent = $(this).closest('.box-skills').find('p');
         var text = (_a = parent.text()) !== null && _a !== void 0 ? _a : "";
@@ -150,12 +150,12 @@ function arrowDiscoverOrHide(overlay) {
         var contentToShow = $(this).next(".text-section-to-show");
         if (contentToShow.css('display') === 'none') {
             //Je n'ai pas fait slideDown() et slideUp() à la main, c'est trop long et sans doute moins performant.
-            contentToShow.slideDown();
+            contentToShow.slideDown(600);
             $(this).find('.animate').css('animation', 'arrowHoverTitleReverse 0.5s infinite');
         }
         else {
             $(this).children('img').css('transform', 'rotate(0deg)');
-            contentToShow.slideUp();
+            contentToShow.slideUp(600);
             $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');
         }
     });

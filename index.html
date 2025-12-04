@@ -26,11 +26,11 @@
             </ul>
         </nav>
     </header>
-    <div id="gridPresentations">
-        <div class="Box_Nom">
-            <div class="labelsNom">
-                <h3 id="LouisPLabel">Louis Presti</h3>
-                <h2 id="slogan_portefolio">Un PorteFolio fait main de A à Z.</h2>
+    <div id="grid-presentation">
+        <div class="box-nom">
+            <div class="labels-nom">
+                <h3 id="louis-p-label">Louis Presti</h3>
+                <h2 id="slogan-portefolio">Un PorteFolio fait main de A à Z.</h2>
 
             </div>
             <div id="container-louis-pic">
@@ -45,7 +45,7 @@
 
     <div class="subs-divisions">
         <div class="sub-division" id="pres">
-            <p class="textBox" style="display: block;">Découvrez comment j'en suis arrivé là !</p>
+            <p class="textBox" style="display: block;">Découvrez mon parcours !</p>
 
             <div class="section-to-show" style="display: none;">
                 <div class="container-title-img">
@@ -148,7 +148,7 @@
                     <img class="img-title-section" src="src/assets/icon_site/down-chevron.png">
                 </div>
 
-                <p class="text-section-to-show">
+                <div class="text-section-to-show">
                     Un projet de première année réalisé en GoLang. Pour commencer : un simple pixel blanc de 1x1 en 2
                     dimensions. Avec cela, je devais alors créer de nouvelles particules et de différentes couleurs.
                     En même temps, la gestion de la mémoire et des performances étaient nécessaires pour assurer un
@@ -158,37 +158,62 @@
                     <br>
                     <video autoplay loop muted playsinline width='400' src="src/files/particle.mp4"></video>
                     <br>
-                    <span><i>Un de presets que j'ai réalisé: une imitation d'une flamme.</i></span>
+                    <span class="explain-video"><i>Un de presets que j'ai réalisé: une imitation d'une
+                            flamme.</i></span>
 
-
+                </div>
                 <div class="container-title-img">
                     <h2 class="title-section-to-show">And's Hommes</h2>
                     <img class="img-title-section" src="src/assets/icon_site/down-chevron.png">
                 </div>
 
-                <p class="text-section-to-show">
-                    <i>And's Hommes</i> est une simimuation de site web e-commerce réalisé en HTML/CSS/PHP et JS ayant pour thème imposé les <i>produits de beauté pour hommes</i>.
+                <div class="text-section-to-show">
+                    <i>And's Hommes</i> est une simimuation de site web e-commerce réalisé en HTML/CSS/PHP et JS ayant
+                    pour thème imposé les <i>produits de beauté pour hommes</i>.
                     <br>
                     Il a été réalisé en groupe de 3 personnes dont chacune s'est occupé d'un domaine. Par exemple, j'ai
                     été en charge du panier alors qu'un autre été en charge de la partie administration.
-                    
+
                     <br>
                     La transposition sur un serveur interne à l'école (par le protocole SSH) a été aussi quelque chose à
                     réaliser.
                     <br>
                     <br>
-                    Pour l'anecdote, le nom <i>And's Hommes</i> correspond phonétiquement au mot <i>Handsome</i> et 
-                    signifie en français "bel/beau".
-                    <br>
-                    Mais on peut également souligner que <i>And's Hommes</i> "traduit" en français donne <i>Et les hommes ?</i> pour mettre en évidence le
-                    sujet encore niche/tabou des produits de beautés chez les hommes.
-                    <br>
-                    <video autoplay loop muted playsinline width='400' src="src/files/andsHommes.mp4"></video>
-                    <br>
-                    <span><i>Un extrait de la vidéo de présentation du site web. La vidéo complète disponible en
-                            cliquant <u><a href="https://youtu.be/s6C-ckqsTfo?si=wxthF-IoA2REeGgu">ici.</a></u></i></span>
-                </p>
 
+                    <video autoplay loop muted playsinline width='400' src="src/files/Ands_Hommes.mp4"></video>
+                    <br>
+                    <span class="explain-video"><i>Un extrait de la vidéo de présentation du site web. La vidéo complète
+                            disponible en
+                            cliquant <u><a href="https://youtu.be/s6C-ckqsTfo?si=wxthF-IoA2REeGgu">ici.</a></u>
+                            <br>
+                            Pour l'anecdote, le nom <i>And's Hommes</i> correspond phonétiquement au mot anglais
+                            <i>Handsome</i> qui
+                            signifie "bel/beau".
+                            <br>
+                            Mais on peut également souligner que <i>And's Hommes</i> "traduit" en français donne <i>"Et
+                                les
+                                hommes ?"</i> pour mettre en évidence le
+                            sujet encore niche/tabou des produits de beautés chez les hommes.
+                            <br></i></span>
+                </div>
+
+                <div class="container-title-img">
+                    <h2 class="title-section-to-show">projet-puissance4</h2>
+                    <img class="img-title-section" src="src/assets/icon_site/down-chevron.png">
+                </div>
+
+                <div class="text-section-to-show">
+                    Ce jeu en réseau puissance 4 a été créé en équipe de 2 personnes. La mission était de transformer ce
+                    jeu solo VS robot à un véritable jeu jouable à deux.
+                    Programmé en GoLang, je me suis initié grâce à ce projet à la programmation concurentielle (routines
+                    et paraléllisme) afin de ne pas bloquer le jeu de l'autre joueur lorsque l'autre est en train de
+                    choisir.
+                    D'un point de vue utilisateur, on pourrait comparer cela aux fonctions asynchrones.
+                    <video autoplay loop muted playsinline width='400' src="src/files/puissance4.mp4"></video>
+                    <br>
+                    <span class="explain-video"><i>Une partie de puissance 4. Les joueurs peuvent voir en direct le
+                            choix de couleur de l'autre.</i></span>
+                </div>
             </span>
         </div>
         <div class="sub-division" id="perso">
@@ -203,17 +228,25 @@
                     <img class="img-title-section" src="src/assets/icon_site/down-chevron.png">
                 </div>
 
-                <p class="text-section-to-show">
+                <div class="text-section-to-show">
                     Depuis maintenant 2017, je participe à des compétitions de <i>Rubik's cube</i>.
                     C'est une passion quotidienne stimultante au même titre qu'un sport professionnel.
                     Je m'entraîne, me perfectionne et me dépasse pour approcher le haut du classement.
                     <br>
                     <br>
-                    <video autoplay loop muted playsinline width='400' src="src/files/pyra.mp4"></video>
-                    <br>
-                    <span>Extrait du <i>Championnat De France 2023</i> : 6ème français à l'épreuve du pyraminx.</span>
+                    <video autoplay loop muted playsinline width='300' src="src/files/pyra.mp4"></video>
 
-                </p>
+                    <div class="explain-video">French Championship 2023</i> : 6ème Français au Pyraminx.</div>
+                    <video autoplay loop muted playsinline width='300' src="src/files/3X3_Single.mp4"></video>
+                    <br>
+                    <div class="explain-video">Mon meilleur temps au 3x3 au French Championship 2025.</div>
+
+                    <video autoplay loop muted playsinline width='300' src="src/files/Pyra_Finale.mp4"></video>
+                    <br>
+                    <div class="explain-video">Finale au Pyraminx du Cube en Baie 2025 : 2ème place.</div>
+
+
+                </div>
 
 
                 <div class="container-title-img">
@@ -221,7 +254,7 @@
                     <img class="img-title-section" src="src/assets/icon_site/down-chevron.png">
                 </div>
 
-                <p class="text-section-to-show">
+                <div class="text-section-to-show">
                     Je publies régulièrement du contenu sur une chaîne Youtube dans laquelle je partage ma précédente
                     passion.
                     En réalité, cela me permet surtout d'exprimer mes compétences en montage vidéos. Avec les retours de
@@ -230,9 +263,9 @@
                     <br>
                     <video autoplay loop muted playsinline width='400' src="src/files/video_louis.mp4"></video>
                     <br>
-                    <span>Extrait d'une des vidéos de ma chaîne Youtube <u><a
+                    <span class="explain-video">Extrait d'une des vidéos de ma chaîne Youtube <u><a
                                 href="https://www.youtube.com/@Slyber">Slyber</a></u>.</span>
-                </p>
+                </div>
 
             </span>
         </div>
@@ -240,99 +273,101 @@
 
 
         <div class="sub-division" id="contact">
-            <p class="textBox" style="display: block;">Vous souhaitez me contacter ?</p>
-            <span class="section-to-show" style="display: none;">
-                <div class="div-contact">
-                    <button class="button-contact"><img src="src/assets/icon_site/email.png" id="contact-mail"></button>
-                    <span>Mon adresse mail</span>
+            <div class="textBox" style="display: block;">Vous souhaitez me contacter ?</p>
+                <span class="section-to-show" style="display: none;">
+                    <div class="div-contact">
+                        <button class="button-contact"><img src="src/assets/icon_site/email.png"
+                                id="contact-mail"></button>
+                        <span>Mon adresse mail</span>
+                    </div>
+                    <div class="div-contact">
+                        <a><img id="contact-pĥone" src="src/assets/icon_site/telephone.png"></a>
+                        <span>Mon numéro de téléphone</span>
+                    </div>
+                    <div class="div-contact">
+                        <button class="button-contact"><img src="src/assets/icon_site/Linkedin-symbole.png"
+                                id="contact-linkedin"></button>
+                        <span>Mon Linkedin</span>
+                    </div>
+                </span>
+            </div>
+        </div>
+        </div>
+
+        <div class="box-skills languages">
+            <p id="text-languages">Langages</p>
+
+            <div class="cards-container">
+                <div class="program-card">
+                    <img texttoshow="Kotlin/Java" src="src/assets/langages/kotlin.png">
                 </div>
-                <div class="div-contact">
-                    <a><img id="contact-pĥone" src="src/assets/icon_site/telephone.png"></a>
-                    <span>Mon numéro de téléphone</span>
+                <div class="program-card">
+                    <img texttoshow="Golang" src="src/assets/langages/Golang.png">
                 </div>
-                <div class="div-contact">
-                    <button class="button-contact"><img src="src/assets/icon_site/Linkedin-symbole.png"
-                            id="contact-linkedin"></button>
-                    <span>Mon Linkedin</span>
+                <div class="program-card">
+                    <img texttoshow="Visual Basic" src="src/assets/langages/VB.NET_Logo.png">
                 </div>
-            </span>
-        </div>
-    </div>
+                <div class="program-card">
+                    <img texttoshow="OCaml (Programation fonctionnelle)" src="src/assets/langages/ocamlpng">
+                </div>
+                <div class="program-card">
+                    <img texttoshow="Python" src="src/assets/langages/python.png">
+                </div>
+                <div class="program-card">
 
-    <div class="box-skills languages">
-        <p id="text-languages">Langages</p>
+                    <img texttoShow="JavaScript/TypeScript" src="src/assets/langages/javascript-logo.png">
+                </div>
+                <div class="program-card">
+                    <img texttoshow="SCSS" src="src/assets/langages/SCSS.png">
+                </div>
 
-        <div class="cards-container">
-            <div class="program_card">
-                <img texttoshow="Kotlin/Java" src="src/assets/langages/kotlin.png">
             </div>
-            <div class="program_card">
-                <img texttoshow="Golang" src="src/assets/langages/Golang.png">
-            </div>
-            <div class="program_card">
-                <img texttoshow="Visual Basic" src="src/assets/langages/VB.NET_Logo.png">
-            </div>
-            <div class="program_card">
-                <img texttoshow="OCaml (Programation fonctionnelle)" src="src/assets/langages/ocamlpng">
-            </div>
-            <div class="program_card">
-                <img texttoshow="Python" src="src/assets/langages/python.png">
-            </div>
-            <div class="program_card">
 
-                <img texttoShow="JavaScript/TypeScript" src="src/assets/langages/javascript-logo.png">
-            </div>
-            <div class="program_card">
-                <img texttoshow="SCSS" src="src/assets/langages/SCSS.png">
-            </div>
 
         </div>
+        <div class="box-skills framworks">
+            <p id="text-frameworks">Frameworks utilisés</p>
 
-
-    </div>
-    <div class="box-skills framworks">
-        <p id="text-frameworks">Frameworks utilisés</p>
-
-        <div class="cards-container">
-            <div class="program_card">
-                <img texttoshow=".NET Framwork" src="src/assets/langages/net_framwork.png">
-            </div>
-            <div class="program_card">
-                <img texttoshow="Node.js" src="src/assets/langages/logo_node_js.png">
-            </div>
-            <div class="program_card">
-                <img texttoshow="Symfony" src="src/assets/langages/symfony.png">
+            <div class="cards-container">
+                <div class="program-card">
+                    <img texttoshow=".NET Framwork" src="src/assets/langages/net_framwork.png">
+                </div>
+                <div class="program-card">
+                    <img texttoshow="Node.js" src="src/assets/langages/logo_node_js.png">
+                </div>
+                <div class="program-card">
+                    <img texttoshow="Symfony" src="src/assets/langages/symfony.png">
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="box-skills tools">
-        <p id="text-tools">Outils & Culture</p>
+        <div class="box-skills tools">
+            <p id="text-tools">Outils & Culture</p>
 
-        <div class="cards-container">
-            <div class="program_card">
-                <img texttoshow="Git" src="src/assets/langages/git_logo.png">
-            </div>
-            <div class="program_card">
-                <img texttoshow="IntelliJ" src="src/assets/langages/intellij-idea-logo.png">
-            </div>
-            <div class="program_card">
-                <img texttoshow="Visual Studio" src="src/assets/langages/Visual_Studio_Icon_2022.svg.png">
-            </div>
-            <div class="program_card">
-                <img texttoshow="TestDrivenDevelopment" src="src/assets/tdd-process.png">
-            </div>
-            <div class="program_card">
-                <img texttoshow="LaTeX" src="src/assets/langages/latex-project-logo_288x288.svg">
+            <div class="cards-container">
+                <div class="program-card">
+                    <img texttoshow="Git" src="src/assets/langages/git_logo.png">
+                </div>
+                <div class="program-card">
+                    <img texttoshow="IntelliJ" src="src/assets/langages/intellij-idea-logo.png">
+                </div>
+                <div class="program-card">
+                    <img texttoshow="Visual Studio" src="src/assets/langages/Visual_Studio_Icon_2022.svg.png">
+                </div>
+                <div class="program-card">
+                    <img texttoshow="TestDrivenDevelopment" src="src/assets/tdd-process.png">
+                </div>
+                <div class="program-card">
+                    <img texttoshow="LaTeX" src="src/assets/langages/latex-project-logo_288x288.svg">
+                </div>
             </div>
         </div>
-    </div>
 
-    <footer>
-        <p> <u><a href="src/files/CV_PRESTI_LOUIS-3-2.pdf" download>Télécharger mon CV</a></u></p>
-        <p>© 2025 Louis Presti - Tous droits réservés.</p>
+        <footer>
+            <p> <u><a href="src/files/CV_PRESTI_LOUIS-3-2.pdf" download>Télécharger mon CV</a></u></p>
+            <p>© 2025 Louis Presti - Tous droits réservés.</p>
 
-    </footer>
+        </footer>
 
 </body>
 

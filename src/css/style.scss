@@ -57,7 +57,7 @@
 
 @keyframes arrowHoverTitleReverse {
     0% {
-        
+
         transform: translateY(5px) rotate(180deg);
     }
 
@@ -75,7 +75,7 @@
     --simpleText: rgb(0, 0, 0);
     --bgBox: black;
     --gradient-color1: linear-gradient(to right, darkviolet, rgb(0, 191, 255));
-    --gradient-color2: linear-gradient(to left, var(--bgBox),rgb(90, 48, 81));
+    --gradient-color2: linear-gradient(to left, var(--bgBox), rgb(90, 48, 81));
     --hover-color1: rgb(0, 191, 255);
 
     body {
@@ -97,9 +97,10 @@
                 padding: 10px;
                 display: flex;
                 justify-content: space-around;
-
+                gap:5px;
                 &>li {
                     position: relative;
+                    text-decoration: dotted;
 
                     &:hover {
                         color: var(--hover-color1);
@@ -135,30 +136,85 @@
             color: var(--text-inHeadFont);
             font-size: 20px;
         }
+
         u:hover {
 
-            color:rgb(105, 105, 105);
+            color: rgb(105, 105, 105);
         }
 
-        #gridPresentations {
+        #grid-presentation {
             display: grid;
             grid-template-columns: 2fr 5fr 2fr;
             margin: 25px;
         }
 
-
-        .Box_Nom {
+        .box-nom {
             display: flex;
             justify-content: space-between;
             column-gap: 10px;
             grid-column: 2;
             gap: 100px;
 
+            .labels-nom {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                #louis-p-label {
+                    position: relative;
+                    font-size: 100px;
+                    @media (max-width:700px) {
+                        font-size:70px;
+                    }
+                    margin-bottom: 15px;
+                    margin-top: 0;
+                    color: var(--simpleText);
+
+
+                }
+
+                #slogan-portefolio {
+                    position: relative;
+                    font-size: 30px;
+                     @media (max-width:700px) {
+                        font-size:20px;
+                    }
+                    max-width: 350px;
+                    min-height: 90px;
+                }
+
+                //ajout de la barre de soulignement
+                #louis-p-label,
+                #slogan-portefolio {
+                    &:hover::after {
+
+                        //position de la barre
+                        position: absolute;
+                        content: "";
+                        bottom: -5px;
+                        left: 0;
+                        margin: 0 5px 0 5px;
+                        width: 95%;
+
+                        //style de la barre
+                        min-height: 7px;
+                        background: var(--gradient-color1);
+
+                        //animation de la barre
+                        transform: scaleX(0) translateX(0);
+                        transform-origin: left;
+                        animation: PointToBar 0.7s ease;
+                    }
+                }
+            }
 
             #container-louis-pic {
 
                 &>#louis-pic {
                     max-width: 300px;
+                    @media(max-width:700px){
+                        max-width: 200px;
+                    }
                     border-radius: 15px;
                     transition: filter 0.5s;
                 }
@@ -186,74 +242,12 @@
 
                         background-color: rgb(32, 160, 202);
                     }
-
                 }
-
             }
         }
-
-    }
-
-    .labelsNom {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-
-        #LouisPLabel {
-            position: relative;
-            font-size: 100px;
-            margin-bottom: 15px;
-            margin-top: 0;
-            color: var(--simpleText);
-
-
-        }
-
-        #slogan_portefolio {
-            position: relative;
-            max-width: 350px;
-            min-height: 90px;
-        }
-
-        //ajout de la barre de soulignement
-        #LouisPLabel,
-        #slogan_portefolio {
-            &:hover::after {
-
-                //position de la barre
-                position: absolute;
-                content: "";
-                bottom: -5px;
-                left: 0;
-                margin: 0 5px 0 5px;
-                width: 95%;
-
-                //style de la barre
-                min-height: 7px;
-                background: var(--gradient-color1);
-
-                //animation de la barre
-                transform: scaleX(0) translateX(0);
-                transform-origin: left;
-                animation: PointToBar 0.7s ease;
-            }
-
-
-        }
-
-
-
-
     }
 
 
-
-    #describ_Louis_label {
-        margin: 0;
-        font-size: 30px;
-        color: var(--simpleText);
-
-    }
 
     .subs-divisions {
         display: flex;
@@ -305,18 +299,14 @@
             transform: scale(1);
         }
 
-
         .div-contact {
             display: flex;
             justify-content: space-between;
 
             img {
                 width: 10%;
-
             }
-
         }
-
     }
 
     .box-skills {
@@ -326,7 +316,7 @@
         font-size: 35px;
         text-align: center;
         z-index: 0;
-      
+
 
         .cards-container {
             position: relative;
@@ -338,10 +328,8 @@
             background-color: rgb(34, 34, 34);
             border-radius: 20px;
             background: var(--gradient-color2);
-          
 
-
-            .program_card {
+            .program-card {
                 display: flex;
                 align-items: center;
                 width: 150px;
@@ -355,11 +343,8 @@
                         transform: scale(1.2);
                     }
                 }
-
             }
-
         }
-
     }
 
 
@@ -417,7 +402,7 @@
 
         .content-section {
             text-align: justify;
-            line-height:1.5;
+            line-height: 1.5;
             padding: 40px;
             font-size: 20px
         }
@@ -428,11 +413,15 @@
             padding-left: 15px;
         }
 
+        .explain-video {
+            font-size: 17px;
+        }
 
         @media (max-width : 1100px) {
             margin: 0 20px;
             min-width: 96%;
         }
+
         @media (max-width : 900px) {
             margin: 0 20px;
             min-width: 80%;
@@ -442,12 +431,10 @@
             top: 20px;
             bottom: 20px;
         }
-
-
     }
 
-    footer{
-        display:flex;
+    footer {
+        display: flex;
         justify-content: space-around;
         background-color: var(--bgBox);
         margin-top: 20px;
