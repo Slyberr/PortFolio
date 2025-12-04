@@ -77,6 +77,7 @@
     --gradient-color1: linear-gradient(to right, darkviolet, rgb(0, 191, 255));
     --gradient-color2: linear-gradient(to left, var(--bgBox), rgb(90, 48, 81));
     --hover-color1: rgb(0, 191, 255);
+    $phone-and-smalls-screens: 700px;
 
     body {
 
@@ -97,7 +98,8 @@
                 padding: 10px;
                 display: flex;
                 justify-content: space-around;
-                gap:5px;
+                gap: 5px;
+
                 &>li {
                     position: relative;
                     text-decoration: dotted;
@@ -145,9 +147,11 @@
         #grid-presentation {
             display: grid;
             grid-template-columns: 2fr 5fr 2fr;
-            @media (max-width:700px) {
-               grid-template-columns: 1fr 10fr 1fr;
+
+            @media (max-width:$phone-and-smalls-screens) {
+                grid-template-columns: 1fr 10fr 1fr;
             }
+
             margin: 25px;
         }
 
@@ -157,8 +161,9 @@
             column-gap: 10px;
             grid-column: 2;
             gap: 100px;
-            @media (max-width:700px) {
-                gap:5px;
+
+            @media (max-width:$phone-and-smalls-screens) {
+                gap: 5px;
             }
 
             .labels-nom {
@@ -169,9 +174,11 @@
                 #louis-p-label {
                     position: relative;
                     font-size: 100px;
-                    @media (max-width:700px) {
-                        font-size:70px;
+
+                    @media (max-width: $phone-and-smalls-screens) {
+                        font-size: 70px;
                     }
+
                     margin-bottom: 15px;
                     margin-top: 0;
                     color: var(--simpleText);
@@ -182,9 +189,11 @@
                 #slogan-portefolio {
                     position: relative;
                     font-size: 30px;
-                     @media (max-width:700px) {
-                        font-size:20px;
+
+                    @media (max-width: $phone-and-smalls-screens) {
+                        font-size: 20px;
                     }
+
                     max-width: 350px;
                     min-height: 90px;
                 }
@@ -218,10 +227,11 @@
 
                 &>#louis-pic {
                     max-width: 300px;
-                   
-                    @media(max-width:700px){
-                         max-width: 180px;
+
+                    @media(max-width: $phone-and-smalls-screens) {
+                        max-width: 180px;
                     }
+
                     border-radius: 15px;
                     transition: filter 0.5s;
                 }
@@ -244,7 +254,8 @@
                     color: var(--text-inBoxfont);
                     background-color: var(--bgBox);
                     transition: background-color 0.5s, opacity 0.5s;
-                    @media (max-width:700px) {
+
+                    @media (max-width: $phone-and-smalls-screens) {
                         top: -100px;
                         left: 15px;
                         font-size: 15px;
@@ -329,6 +340,10 @@
         text-align: center;
         z-index: 0;
 
+        @media (max-width:$phone-and-smalls-screens) {
+            margin: 0 5% 0 5%;
+            font-size: 25px;
+        }
 
         .cards-container {
             position: relative;
@@ -341,19 +356,36 @@
             border-radius: 20px;
             background: var(--gradient-color2);
 
+            @media (max-width:$phone-and-smalls-screens) {
+                padding: 5px;
+                gap: 15px;
+                border-radius: 10px;
+            }
+
             .program-card {
                 display: flex;
                 align-items: center;
                 width: 150px;
                 height: 150px;
 
+                @media (max-width:$phone-and-smalls-screens) {
+                    width: 75px;
+                    height: 75px;
+                }
+
                 img {
                     width: 100%;
+
                     transition: transform 0.5s;
 
                     &:hover {
                         transform: scale(1.2);
+
+                        @media (max-width:$phone-and-smalls-screens) {
+                            transform: scale(1.08);
+                        }
                     }
+
                 }
             }
         }
@@ -416,7 +448,7 @@
             text-align: justify;
             line-height: 1.5;
             padding: 40px;
-            font-size: 20px
+            font-size: 20px;
         }
 
         #image-retour {
@@ -425,10 +457,20 @@
             padding-left: 15px;
         }
 
+        video {
+            transform: scale(1);
+
+            @media (max-width: $phone-and-smalls-screens) {
+                transform: scale(0.8);
+            }
+        }
+
         .explain-video {
+
             font-size: 17px;
         }
 
+        //Gérer la taille du panel selon la taille de l'écran pc
         @media (max-width : 1100px) {
             margin: 0 20px;
             min-width: 96%;
@@ -450,6 +492,16 @@
         justify-content: space-around;
         background-color: var(--bgBox);
         margin-top: 20px;
+
+        @media (max-width: $phone-and-smalls-screens) {
+
+            a,
+            * {
+                font-size: 14px;
+            }
+
+        }
+
         color: var(--text-inBoxfont);
     }
 

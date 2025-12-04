@@ -275,6 +275,12 @@
   text-align: center;
   z-index: 0;
 }
+@media (max-width: 700px) {
+  :root .box-skills {
+    margin: 0 5% 0 5%;
+    font-size: 25px;
+  }
+}
 :root .box-skills .cards-container {
   position: relative;
   display: flex;
@@ -286,11 +292,24 @@
   border-radius: 20px;
   background: var(--gradient-color2);
 }
+@media (max-width: 700px) {
+  :root .box-skills .cards-container {
+    padding: 5px;
+    gap: 15px;
+    border-radius: 10px;
+  }
+}
 :root .box-skills .cards-container .program-card {
   display: flex;
   align-items: center;
   width: 150px;
   height: 150px;
+}
+@media (max-width: 700px) {
+  :root .box-skills .cards-container .program-card {
+    width: 75px;
+    height: 75px;
+  }
 }
 :root .box-skills .cards-container .program-card img {
   width: 100%;
@@ -298,6 +317,11 @@
 }
 :root .box-skills .cards-container .program-card img:hover {
   transform: scale(1.2);
+}
+@media (max-width: 700px) {
+  :root .box-skills .cards-container .program-card img:hover {
+    transform: scale(1.08);
+  }
 }
 :root .overlay {
   z-index: 100;
@@ -350,6 +374,14 @@
   padding-top: 15px;
   padding-left: 15px;
 }
+:root .temp-panel video {
+  transform: scale(1);
+}
+@media (max-width: 700px) {
+  :root .temp-panel video {
+    transform: scale(0.8);
+  }
+}
 :root .temp-panel .explain-video {
   font-size: 17px;
 }
@@ -376,6 +408,14 @@
   justify-content: space-around;
   background-color: var(--bgBox);
   margin-top: 20px;
+}
+@media (max-width: 700px) {
+  :root footer a,
+  :root footer * {
+    font-size: 14px;
+  }
+}
+:root footer {
   color: var(--text-inBoxfont);
 }
 
