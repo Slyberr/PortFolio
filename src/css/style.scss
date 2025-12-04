@@ -278,7 +278,7 @@
         flex-wrap: wrap;
         gap: 5%;
         max-width: 1000px;
-        margin: 10% auto 0% auto;
+        margin: 5% auto 0%;
     }
 
     .sub-division {
@@ -322,14 +322,7 @@
             transform: scale(1);
         }
 
-        .div-contact {
-            display: flex;
-            justify-content: space-between;
-
-            img {
-                width: 10%;
-            }
-        }
+        
     }
 
     .box-skills {
@@ -429,6 +422,7 @@
 
         .container-title-img {
             display: flex;
+            font-size: 19px;
 
             img {
                 padding: 5px;
@@ -437,6 +431,16 @@
                 transition: transform 0.5s;
 
             }
+        }
+
+        video {
+            @media (max-width: $phone-and-smalls-screens) {
+                max-width: 330px;
+            }
+        }
+
+        .explain-video {
+            font-size: 17px;
         }
 
         .text-section-to-show {
@@ -449,6 +453,10 @@
             line-height: 1.5;
             padding: 40px;
             font-size: 20px;
+            @media (max-width: $phone-and-smalls-screens) {
+                padding: 20px;
+                font-size: 17px;
+            }
         }
 
         #image-retour {
@@ -457,16 +465,13 @@
             padding-left: 15px;
         }
 
-        video {
+        
+        .div-contact {
+            display: flex;
 
-            @media (max-width: $phone-and-smalls-screens) {
-                max-width: 300px;
+            img {
+                width:40%;
             }
-        }
-
-        .explain-video {
-
-            font-size: 17px;
         }
 
         //Gérer la taille du panel selon la taille de l'écran pc

@@ -221,7 +221,7 @@
   flex-wrap: wrap;
   gap: 5%;
   max-width: 1000px;
-  margin: 10% auto 0% auto;
+  margin: 5% auto 0%;
 }
 :root .sub-division {
   display: flex;
@@ -259,13 +259,6 @@
 }
 :root .sub-division:hover::before {
   transform: scale(1);
-}
-:root .sub-division .div-contact {
-  display: flex;
-  justify-content: space-between;
-}
-:root .sub-division .div-contact img {
-  width: 10%;
 }
 :root .box-skills {
   display: flex;
@@ -353,12 +346,21 @@
 }
 :root .temp-panel .container-title-img {
   display: flex;
+  font-size: 19px;
 }
 :root .temp-panel .container-title-img img {
   padding: 5px;
   margin-top: -4px;
   align-self: center;
   transition: transform 0.5s;
+}
+@media (max-width: 700px) {
+  :root .temp-panel video {
+    max-width: 330px;
+  }
+}
+:root .temp-panel .explain-video {
+  font-size: 17px;
 }
 :root .temp-panel .text-section-to-show {
   display: none;
@@ -369,18 +371,22 @@
   padding: 40px;
   font-size: 20px;
 }
+@media (max-width: 700px) {
+  :root .temp-panel .content-section {
+    padding: 20px;
+    font-size: 17px;
+  }
+}
 :root .temp-panel #image-retour {
   max-width: 25px;
   padding-top: 15px;
   padding-left: 15px;
 }
-@media (max-width: 700px) {
-  :root .temp-panel video {
-    max-width: 300px;
-  }
+:root .temp-panel .div-contact {
+  display: flex;
 }
-:root .temp-panel .explain-video {
-  font-size: 17px;
+:root .temp-panel .div-contact img {
+  width: 40%;
 }
 @media (max-width: 1100px) {
   :root .temp-panel {
