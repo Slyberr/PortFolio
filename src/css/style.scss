@@ -458,10 +458,9 @@
         }
 
         video {
-            transform: scale(1);
 
             @media (max-width: $phone-and-smalls-screens) {
-                transform: scale(0.8);
+                max-width: 300px;
             }
         }
 

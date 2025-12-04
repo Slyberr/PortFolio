@@ -374,12 +374,9 @@
   padding-top: 15px;
   padding-left: 15px;
 }
-:root .temp-panel video {
-  transform: scale(1);
-}
 @media (max-width: 700px) {
   :root .temp-panel video {
-    transform: scale(0.8);
+    max-width: 300px;
   }
 }
 :root .temp-panel .explain-video {
