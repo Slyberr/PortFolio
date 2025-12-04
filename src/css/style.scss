@@ -145,6 +145,9 @@
         #grid-presentation {
             display: grid;
             grid-template-columns: 2fr 5fr 2fr;
+            @media (max-width:700px) {
+               grid-template-columns: 1fr 10fr 1fr;
+            }
             margin: 25px;
         }
 
@@ -154,6 +157,9 @@
             column-gap: 10px;
             grid-column: 2;
             gap: 100px;
+            @media (max-width:700px) {
+                gap:5px;
+            }
 
             .labels-nom {
                 display: flex;
@@ -212,8 +218,9 @@
 
                 &>#louis-pic {
                     max-width: 300px;
+                   
                     @media(max-width:700px){
-                        max-width: 200px;
+                         max-width: 180px;
                     }
                     border-radius: 15px;
                     transition: filter 0.5s;
@@ -237,6 +244,11 @@
                     color: var(--text-inBoxfont);
                     background-color: var(--bgBox);
                     transition: background-color 0.5s, opacity 0.5s;
+                    @media (max-width:700px) {
+                        top: -100px;
+                        left: 15px;
+                        font-size: 15px;
+                    }
 
                     &:hover {
 
