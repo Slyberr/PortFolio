@@ -27,14 +27,14 @@ function headerGestion() {
 function containerPresentation() {
 
     $('#slogan-portfolio').on('mouseenter', function () {
-        $(this).html('Un PortFolio fait main de A à Z. <i><u class="textadded"onhover="color:blue">En savoir plus</u></i>');
+        $(this).html('Un portfolio fait main de A à Z. <i><u class="textadded"onhover="color:blue">En savoir plus</u></i>');
         $('.textadded').on('click',function() {
             window.alert('Technologies : HTML5/CSS3/TypeScript/SCSS et node.js pour gérer TS et SCSS.\n\nCe portfolio a été réalisé avec Jquery comme unique bibliothèque pour simplifier la manipulation du DOM.\n\n "slideUp()" et "slideDown()"  de cette dernière sont les seules fonctions utilisées dans un but esthétique.')
         })
     
     })
     $('#slogan-portfolio').on('mouseleave', function () {
-        $(this).text('Un PortFolio fait main de A à Z.');
+        $(this).text('Un portfolio fait main de A à Z.');
     })
 
     $('#container-louis-pic').on('mouseover', function () {
