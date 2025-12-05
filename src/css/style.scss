@@ -78,6 +78,7 @@
     --gradient-color2: linear-gradient(to left, var(--bgBox), rgb(90, 48, 81));
     --hover-color1: rgb(0, 191, 255);
     $phone-and-smalls-screens: 700px;
+    $smalls-phones: 400px;
 
     body {
 
@@ -95,14 +96,30 @@
 
                 list-style-type: none;
                 margin: 0;
-                padding: 10px;
+                padding: 0;
+
                 display: flex;
+
                 justify-content: space-around;
                 gap: 5px;
+
+
 
                 &>li {
                     position: relative;
                     text-decoration: dotted;
+                    text-align: center;
+                    padding: 10px;
+
+                    @media (max-width: $phone-and-smalls-screens) {
+                        padding: 5px;
+                        font-size: 13px;
+                    }
+
+                    @media (max-width: $phone-and-smalls-screens) {
+                        padding: 2px;
+                        font-size: 10px;
+                    }
 
                     &:hover {
                         color: var(--hover-color1);
@@ -114,7 +131,7 @@
                         //position de la barre
                         position: absolute;
                         content: "";
-                        bottom: 0;
+                        bottom: 10px;
                         left: 0;
                         width: 100%;
 
@@ -147,12 +164,17 @@
         #grid-presentation {
             display: grid;
             grid-template-columns: 2fr 5fr 2fr;
+            margin: 25px;
 
             @media (max-width:$phone-and-smalls-screens) {
-                grid-template-columns: 1fr 10fr 1fr;
+                grid-template-columns: 0fr 10fr 0fr;
             }
 
-            margin: 25px;
+            @media (max-width:$smalls-phones) {
+                margin: 10px
+            }
+
+
         }
 
         .box-nom {
@@ -163,7 +185,7 @@
             gap: 100px;
 
             @media (max-width:$phone-and-smalls-screens) {
-                gap: 5px;
+                gap: 10px;
             }
 
             .labels-nom {
@@ -179,6 +201,10 @@
                         font-size: 70px;
                     }
 
+                    @media (max-width: $smalls-phones) {
+                        font-size: 50px;
+                    }
+
                     margin-bottom: 15px;
                     margin-top: 0;
                     color: var(--simpleText);
@@ -192,6 +218,10 @@
 
                     @media (max-width: $phone-and-smalls-screens) {
                         font-size: 20px;
+                    }
+
+                    @media (max-width: $smalls-phones) {
+                        font-size: 15px;
                     }
 
                     max-width: 350px;
@@ -210,10 +240,15 @@
                         left: 0;
                         margin: 0 5px 0 5px;
                         width: 95%;
-
                         //style de la barre
                         min-height: 7px;
                         background: var(--gradient-color1);
+
+                        @media(max-width: $phone-and-smalls-screens) {
+                            min-height: 5px;
+                        }
+
+
 
                         //animation de la barre
                         transform: scaleX(0) translateX(0);
@@ -221,6 +256,21 @@
                         animation: PointToBar 0.7s ease;
                     }
                 }
+
+                #slogan-portefolio {
+                    &:hover::after {
+                        @media(max-width: $phone-and-smalls-screens) {
+                            bottom: 30px;
+                        }
+
+                        @media(max-width: $smalls-phones) {
+                            bottom: 50px;
+                        }
+
+                    }
+                }
+
+
             }
 
             #container-louis-pic {
@@ -232,6 +282,10 @@
                         max-width: 180px;
                     }
 
+                    @media(max-width: $smalls-phones) {
+                        max-width: 150px;
+                    }
+
                     border-radius: 15px;
                     transition: filter 0.5s;
                 }
@@ -240,7 +294,7 @@
                     filter: blur(4px);
                 }
 
-                &>#button-img {
+                >#button-img {
                     display: flex;
                     font-family: Arial, Helvetica, sans-serif;
                     opacity: 0;
@@ -261,6 +315,12 @@
                         font-size: 15px;
                     }
 
+                    @media (max-width: $smalls-phones) {
+                        top: -85px;
+                        left: 15px;
+                        font-size: 12px;
+                    }
+
                     &:hover {
 
                         background-color: rgb(32, 160, 202);
@@ -279,6 +339,7 @@
         gap: 5%;
         max-width: 1000px;
         margin: 5% auto 0%;
+
     }
 
     .sub-division {
@@ -298,8 +359,27 @@
         z-index: 0;
         transition: font-size 0.6s;
 
+
+        @media (max-width:$phone-and-smalls-screens) {
+            min-height: 80px;
+            font-size: 18px;
+        }
+
+        @media (max-width:$smalls-phones) {
+            min-height: 60px;
+            font-size: 16px;
+        }
+
         &:hover {
             font-size: 24px;
+
+            @media (max-width:$phone-and-smalls-screens) {
+                font-size: 20px;
+            }
+
+            @media (max-width:$smalls-phones) {
+                font-size: 18px;
+            }
         }
 
         &::before {
@@ -322,7 +402,7 @@
             transform: scale(1);
         }
 
-        
+
     }
 
     .box-skills {
@@ -335,7 +415,11 @@
 
         @media (max-width:$phone-and-smalls-screens) {
             margin: 0 5% 0 5%;
-            font-size: 25px;
+            font-size: 20px;
+        }
+
+        @media (max-width:$smalls-phones) {
+            font-size: 18px;
         }
 
         .cards-container {
@@ -358,12 +442,18 @@
             .program-card {
                 display: flex;
                 align-items: center;
-                width: 150px;
-                height: 150px;
+                width: 130px;
+                height: 130px;
 
-                @media (max-width:$phone-and-smalls-screens) {
+                //Les cartes sont déjà trop grosses à 900px de width.
+                @media (max-width:($phone-and-smalls-screens+200px)) {
                     width: 75px;
                     height: 75px;
+                }
+
+                @media (max-width:$smalls-phones) {
+                    width: 60px;
+                    height: 60px;
                 }
 
                 img {
@@ -424,6 +514,14 @@
             display: flex;
             font-size: 19px;
 
+            @media (max-width: $phone-and-smalls-screens) {
+                font-size: 16px;
+            }
+
+            @media (max-width: $smalls-phones) {
+                font-size: 14px;
+            }
+
             img {
                 padding: 5px;
                 margin-top: -4px;
@@ -436,6 +534,10 @@
         video {
             @media (max-width: $phone-and-smalls-screens) {
                 max-width: 330px;
+            }
+
+            @media (max-width: $smalls-phones) {
+                max-width: 270px;
             }
         }
 
@@ -453,9 +555,15 @@
             line-height: 1.5;
             padding: 40px;
             font-size: 20px;
+
             @media (max-width: $phone-and-smalls-screens) {
                 padding: 20px;
-                font-size: 17px;
+                font-size: 15px;
+            }
+
+            @media (max-width: $smalls-phones) {
+                padding: 15px;
+                font-size: 12px;
             }
         }
 
@@ -465,16 +573,19 @@
             padding-left: 15px;
         }
 
-        
+
         .div-contact {
             display: flex;
+            >span{
+                vertical-align: middle;
+            }
 
             img {
-                width:40%;
+                width: 40%;
             }
         }
 
-        //Gérer la taille du panel selon la taille de l'écran pc
+        //Gérer la taille du panel selon la taille de l'écran pchone-and-smalls-screens
         @media (max-width : 1100px) {
             margin: 0 20px;
             min-width: 96%;
@@ -502,6 +613,15 @@
             a,
             * {
                 font-size: 14px;
+            }
+
+        }
+
+        @media (max-width: $smalls-phones) {
+
+            a,
+            * {
+                font-size: 10px;
             }
 
         }

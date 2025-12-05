@@ -23,7 +23,7 @@ function headerGestion() {
     })
 
     //Logique métier du changement de couleur de préférence.
-    $('#iconColorMode').on('click', function () {
+    $('#icon-color-mode').on('click', function () {
         changeBrightMode($(this));
     })
 }
@@ -119,7 +119,7 @@ function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
 
 // Fonction pour obtenir le thème de couleur actuel
 function isBrightTheme() {
-    return $('#iconColorMode').attr('isBright') === "true";
+    return $('#icon-color-mode').attr('isBright') === "true";
 };
 
 
