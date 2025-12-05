@@ -110,15 +110,29 @@
                     text-decoration: dotted;
                     text-align: center;
                     padding: 10px;
+                    line-height: 1;
 
                     @media (max-width: $phone-and-smalls-screens) {
                         padding: 5px;
                         font-size: 13px;
                     }
 
-                    @media (max-width: $phone-and-smalls-screens) {
+                    @media (max-width: $smalls-phones) {
                         padding: 2px;
                         font-size: 10px;
+                        line-height: 0.7;
+                    }
+
+                    #icon-color-mode {
+
+                        @media (max-width: $phone-and-smalls-screens) {
+                            transform: scale(0.8);
+                        }
+
+                        @media (max-width: $smalls-phones) {
+                            transform: scale(0.6);
+                            
+                        }
                     }
 
                     &:hover {
@@ -576,7 +590,8 @@
 
         .div-contact {
             display: flex;
-            >span{
+
+            >span {
                 vertical-align: middle;
             }
 

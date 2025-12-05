@@ -82,6 +82,7 @@
   text-decoration: dotted;
   text-align: center;
   padding: 10px;
+  line-height: 1;
 }
 @media (max-width: 700px) {
   :root body header > nav > ul > li {
@@ -89,10 +90,21 @@
     font-size: 13px;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 400px) {
   :root body header > nav > ul > li {
     padding: 2px;
     font-size: 10px;
+    line-height: 0.7;
+  }
+}
+@media (max-width: 700px) {
+  :root body header > nav > ul > li #icon-color-mode {
+    transform: scale(0.8);
+  }
+}
+@media (max-width: 400px) {
+  :root body header > nav > ul > li #icon-color-mode {
+    transform: scale(0.6);
   }
 }
 :root body header > nav > ul > li:hover {
