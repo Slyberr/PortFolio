@@ -208,7 +208,7 @@
                     color: var(--simpleText);
                 }
 
-                #slogan-portefolio {
+                #slogan-portfolio {
                     position: relative;
                     font-size: 30px;
 
@@ -226,7 +226,7 @@
 
                 //ajout de la barre de soulignement
                 #louis-p-label,
-                #slogan-portefolio {
+                #slogan-portfolio {
                     &:hover::after {
                         //position de la barre
                         position: absolute;
@@ -250,7 +250,7 @@
                     }
                 }
 
-                #slogan-portefolio {
+                #slogan-portfolio {
                     &:hover::after {
                         @media(max-width: $phone-and-smalls-screens) {
                             bottom: 30px;
