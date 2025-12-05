@@ -66,8 +66,6 @@
     }
 }
 
-
-
 :root {
     --bg: whitesmoke;
     --text-inBoxfont: white;
@@ -81,7 +79,6 @@
     $smalls-phones: 400px;
 
     body {
-
         transition: background-color 0.5s;
         margin: 0;
         font-family: "League Spartan";
@@ -93,17 +90,12 @@
             background-color: var(--bgBox);
 
             &>nav>ul {
-
                 list-style-type: none;
                 margin: 0;
                 padding: 0;
-
                 display: flex;
-
                 justify-content: space-around;
                 gap: 5px;
-
-
 
                 &>li {
                     position: relative;
@@ -124,14 +116,12 @@
                     }
 
                     #icon-color-mode {
-
                         @media (max-width: $phone-and-smalls-screens) {
                             transform: scale(0.8);
                         }
 
                         @media (max-width: $smalls-phones) {
-                            transform: scale(0.6);
-                            
+                            transform: scale(0.6);  
                         }
                     }
 
@@ -141,7 +131,6 @@
                     }
 
                     &:hover::after {
-
                         //position de la barre
                         position: absolute;
                         content: "";
@@ -162,8 +151,6 @@
             }
         }
 
-
-
         a {
             text-decoration: none;
             color: var(--text-inHeadFont);
@@ -171,7 +158,6 @@
         }
 
         u:hover {
-
             color: rgb(105, 105, 105);
         }
 
@@ -187,8 +173,6 @@
             @media (max-width:$smalls-phones) {
                 margin: 10px
             }
-
-
         }
 
         .box-nom {
@@ -222,8 +206,6 @@
                     margin-bottom: 15px;
                     margin-top: 0;
                     color: var(--simpleText);
-
-
                 }
 
                 #slogan-portefolio {
@@ -246,7 +228,6 @@
                 #louis-p-label,
                 #slogan-portefolio {
                     &:hover::after {
-
                         //position de la barre
                         position: absolute;
                         content: "";
@@ -261,8 +242,6 @@
                         @media(max-width: $phone-and-smalls-screens) {
                             min-height: 5px;
                         }
-
-
 
                         //animation de la barre
                         transform: scaleX(0) translateX(0);
@@ -280,11 +259,8 @@
                         @media(max-width: $smalls-phones) {
                             bottom: 50px;
                         }
-
                     }
                 }
-
-
             }
 
             #container-louis-pic {
@@ -344,8 +320,6 @@
         }
     }
 
-
-
     .subs-divisions {
         display: flex;
         justify-content: center;
@@ -372,7 +346,6 @@
         background-color: var(--bgBox);
         z-index: 0;
         transition: font-size 0.6s;
-
 
         @media (max-width:$phone-and-smalls-screens) {
             min-height: 80px;
@@ -415,8 +388,6 @@
         &:hover::before {
             transform: scale(1);
         }
-
-
     }
 
     .box-skills {
@@ -482,14 +453,10 @@
                             transform: scale(1.08);
                         }
                     }
-
                 }
             }
         }
     }
-
-
-
 
     //style complet du panel
     .overlay {
@@ -513,11 +480,8 @@
         bottom: 45%;
         margin: 0 20%;
         min-width: 60%;
-
-
         overflow-y: scroll;
         scrollbar-color: black darkviolet;
-
         color: var(--text-inBoxfont);
         background-color: var(--bgBox);
         border-radius: 15px;
@@ -541,7 +505,6 @@
                 margin-top: -4px;
                 align-self: center;
                 transition: transform 0.5s;
-
             }
         }
 
@@ -561,7 +524,6 @@
 
         .text-section-to-show {
             display: none;
-
         }
 
         .content-section {
@@ -586,7 +548,6 @@
             padding-top: 15px;
             padding-left: 15px;
         }
-
 
         .div-contact {
             display: flex;
@@ -624,25 +585,18 @@
         margin-top: 20px;
 
         @media (max-width: $phone-and-smalls-screens) {
-
             a,
             * {
                 font-size: 14px;
             }
-
         }
 
         @media (max-width: $smalls-phones) {
-
             a,
             * {
                 font-size: 10px;
             }
-
         }
-
         color: var(--text-inBoxfont);
     }
-
-
 }

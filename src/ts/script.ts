@@ -1,11 +1,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-
     headerGestion();
     containerPresentation();
     programsCardsPresentation();
     PanelGestion();
-
 })
 
 //Gestion de l'entête
@@ -13,13 +11,10 @@ function headerGestion() {
 
     //Cliquer sur une section de l'entête
     $('li ').on('click', function () {
-
         let sectionName: string = $(this).find('a').attr('href') ?? "";
-
         if (sectionName) {
             showAndLogicPanel(sectionName);
         }
-
     })
 
     //Logique métier du changement de couleur de préférence.
@@ -31,27 +26,22 @@ function headerGestion() {
 //Gestion du container d'accueil (dynamique du nom, de l'image..)
 function containerPresentation() {
 
-
     $('#slogan-portefolio').on('mouseenter', function () {
         $(this).html('Un PorteFolio fait main de A à Z. <i><u class="textadded"onhover="color:blue">En savoir plus</u></i>');
-        
         $('.textadded').on('click',function() {
             window.alert('Technologies : HTML5/CSS3/TypeScript/SCSS et node.js pour gérer TS et SCSS.\n\nCe portefolio a été réalisé avec Jquery comme unique bibliothèque pour simplifier la manipulation du DOM.\n\n "slideUp()" et "slideDown()"  de cette dernière sont les seules fonctions utilisées dans un but esthétique.')
         })
     
     })
     $('#slogan-portefolio').on('mouseleave', function () {
-
         $(this).text('Un PorteFolio fait main de A à Z.');
     })
 
     $('#container-louis-pic').on('mouseover', function () {
         $('#button-img').css('opacity', '1');
-
     })
     $('#container-louis-pic').on('mouseleave', function () {
         $('#button-img').css('opacity', '0');
-
     })
 }
 
@@ -61,13 +51,10 @@ function programsCardsPresentation() {
     $('.program-card').on('mouseenter', function () {
         let textToShow: string = $(this).find('img').attr('texttoshow') ?? "";
         let parent: JQuery = $(this).closest('.box-skills').find('p');
-
         $(this).closest('.box-skills').find('p').text(`${parent?.text()} = ${textToShow}`);
-
     })
 
     $('.program-card').on('mouseleave', function () {
-
         let parent: JQuery = $(this).closest('.box-skills').find('p');
         let text: string = parent.text() ?? "";
         let newtext: RegExpMatchArray | null = text.match(/^[^=]+/);
@@ -75,9 +62,7 @@ function programsCardsPresentation() {
         if (newtext != null) {
             $(this).closest('.box-skills').find('p').text(newtext[0]);
         }
-
     })
-
 }
 
 //Logique métier du panel 
@@ -87,11 +72,9 @@ function PanelGestion() {
     })
 }
 
-
 //Gestion du mode clair/sombre
 function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
     if (!isBrightTheme()) {
-
         actualIcon.attr("isBright", "true");
         actualIcon.attr("src", "src/assets/icon_site/sun.svg");
         //changement des couleurs définies dans root.
@@ -104,7 +87,6 @@ function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
         });
 
     } else {
-
         actualIcon.attr("isBright", "false");
         actualIcon.attr("src", "src/assets/icon_site/moon.svg");
         $(':root').css({
@@ -122,7 +104,6 @@ function isBrightTheme() {
     return $('#icon-color-mode').attr('isBright') === "true";
 };
 
-
 //Gestion de l'affichage du panel avec le texte dédié.
 function showAndLogicPanel(currentID: string) {
 
@@ -131,14 +112,11 @@ function showAndLogicPanel(currentID: string) {
     const overlay: JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='src/assets/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
 
     overlay.find(".content-section").append(content.html());
-
     //ajout du panel à la page et blocage du scoll du body
     body.append(overlay);
     body.css("overflow", "hidden");
-
     //Transition d'affichage du panel
     overlay.fadeIn();
-
     EventsListenersForPanel(body, overlay);
 };
 
@@ -171,8 +149,6 @@ function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) 
             'overflow': 'auto'
         })
         },350)
-        
-
     })
 
     //On sort du panel si on clique sur échap
@@ -181,7 +157,6 @@ function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) 
         if (event.key === "Escape") {
             $('#image-retour').trigger('click');
         }
-
     });
 
     //On sort du panel si le click est sur l'overlay exclusivement
@@ -196,27 +171,20 @@ function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) 
 
 function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
 
-
-
     overlay.find('.container-title-img').on("click", function () {
 
         let contentToShow = $(this).next(".text-section-to-show")
 
         if (contentToShow.css('display') === 'none') {
-
             //Je n'ai pas fait slideDown() et slideUp() à la main, c'est trop long et sans doute moins performant.
             contentToShow.slideDown(600)
-            
             $(this).find('.animate').css('animation', 'arrowHoverTitleReverse 0.5s infinite');
 
         } else {
             $(this).children('img').css('transform', 'rotate(0deg)');
             contentToShow.slideUp(600)
-            
-            $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');
-            
+            $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');   
         }
-
     })
 
     overlay.find('.container-title-img').on("mouseenter", function () {
@@ -227,9 +195,8 @@ function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
         }else{
             $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');
         }
-
-
     })
+
     overlay.find('.container-title-img').on("mouseleave", function () {
 
         $(this).children('img').removeClass('animate');
