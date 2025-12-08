@@ -73,7 +73,7 @@
     --simple-text: rgb(0, 0, 0);
     --bg-box: black;
     --gradient-color1: linear-gradient(to right, darkviolet, rgb(0, 191, 255));
-    --gradient-color2: linear-gradient(160deg, var(--bg-box),rgb(109, 0, 156),#00a2be);
+    --gradient-color2: linear-gradient(160deg, var(--bg-box), rgb(68, 0, 97), rgb(0, 73, 95));
     --hover-color1: rgb(0, 191, 255);
     $phone-and-smalls-screens: 700px;
     $smalls-phones: 400px;
@@ -121,7 +121,7 @@
                         }
 
                         @media (max-width: $smalls-phones) {
-                            transform: scale(0.6);  
+                            transform: scale(0.6);
                         }
                     }
 
@@ -526,37 +526,48 @@
             display: none;
 
             >.close-section {
-               background-color: #20b4a8;
-               font-family:"League Spartan" ;
-               font-size: 18px;
-               border-radius: 5px;
-               min-height: 25px;
-                
-                
+                background-color: #20b4a8;
+                font-family: "League Spartan";
+                font-size: 18px;
+                border-radius: 5px;
+                min-height: 25px;
+                border: none;
 
+                &:hover {
+                    background-color: #26d8c9;
+                }
             }
         }
 
         .content-section {
             text-align: justify;
             line-height: 1.5;
-            padding: 40px;
+            padding: 0 40px 0 40px;
             font-size: 20px;
+
             @media (max-width: $phone-and-smalls-screens) {
-                padding: 20px;
+                padding: 0 20px 0 20px;
                 font-size: 15px;
             }
 
             @media (max-width: $smalls-phones) {
-                padding: 15px;
+                padding: 0 15px 0 15px;
                 font-size: 12px;
             }
         }
 
         #image-retour {
             max-width: 25px;
-            padding-top: 15px;
+            padding-top: 25px;
             padding-left: 15px;
+
+            @media (max-width: $phone-and-smalls-screens) {
+                max-width: 20px;
+            }
+
+            @media (max-width: $smalls-phones) {
+                max-width: 15px;
+            }
         }
 
         .div-contact {
@@ -595,6 +606,7 @@
         margin-top: 20px;
 
         @media (max-width: $phone-and-smalls-screens) {
+
             a,
             * {
                 font-size: 14px;
@@ -602,11 +614,13 @@
         }
 
         @media (max-width: $smalls-phones) {
+
             a,
             * {
                 font-size: 10px;
             }
         }
+
         color: var(--text-in-box);
     }
 }

@@ -55,7 +55,7 @@
   --simple-text: rgb(0, 0, 0);
   --bg-box: black;
   --gradient-color1: linear-gradient(to right, darkviolet, rgb(0, 191, 255));
-  --gradient-color2: linear-gradient(160deg, var(--bg-box),rgb(109, 0, 156),#00a2be);
+  --gradient-color2: linear-gradient(160deg, var(--bg-box), rgb(68, 0, 97), rgb(0, 73, 95));
   --hover-color1: rgb(0, 191, 255);
 }
 :root body {
@@ -489,29 +489,43 @@
   font-size: 18px;
   border-radius: 5px;
   min-height: 25px;
+  border: none;
+}
+:root .temp-panel .text-section-to-show > .close-section:hover {
+  background-color: #26d8c9;
 }
 :root .temp-panel .content-section {
   text-align: justify;
   line-height: 1.5;
-  padding: 40px;
+  padding: 0 40px 0 40px;
   font-size: 20px;
 }
 @media (max-width: 700px) {
   :root .temp-panel .content-section {
-    padding: 20px;
+    padding: 0 20px 0 20px;
     font-size: 15px;
   }
 }
 @media (max-width: 400px) {
   :root .temp-panel .content-section {
-    padding: 15px;
+    padding: 0 15px 0 15px;
     font-size: 12px;
   }
 }
 :root .temp-panel #image-retour {
   max-width: 25px;
-  padding-top: 15px;
+  padding-top: 25px;
   padding-left: 15px;
+}
+@media (max-width: 700px) {
+  :root .temp-panel #image-retour {
+    max-width: 20px;
+  }
+}
+@media (max-width: 400px) {
+  :root .temp-panel #image-retour {
+    max-width: 15px;
+  }
 }
 :root .temp-panel .div-contact {
   display: flex;
