@@ -572,13 +572,19 @@
 
         .div-contact {
             display: flex;
+            margin: 20px;
 
-            >span {
-                vertical-align: middle;
+            .text-contact {
+                display: flex;
+                align-self: center;
             }
 
             img {
                 width: 40%;
+
+                @media (max-width: $phone-and-smalls-screens) {
+                    width: 30%;
+                }
             }
         }
 

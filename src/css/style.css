@@ -529,12 +529,19 @@
 }
 :root .temp-panel .div-contact {
   display: flex;
+  margin: 20px;
 }
-:root .temp-panel .div-contact > span {
-  vertical-align: middle;
+:root .temp-panel .div-contact .text-contact {
+  display: flex;
+  align-self: center;
 }
 :root .temp-panel .div-contact img {
   width: 40%;
+}
+@media (max-width: 700px) {
+  :root .temp-panel .div-contact img {
+    width: 30%;
+  }
 }
 @media (max-width: 1100px) {
   :root .temp-panel {
