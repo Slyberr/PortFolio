@@ -1,5 +1,5 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     headerGestion();
     containerPresentation();
     programsCardsPresentation();
@@ -56,7 +56,7 @@ function programsCardsPresentation() {
 
     $('.program-card').on('mouseleave', function () {
         let parent: JQuery = $(this).closest('.box-skills').find('p');
-        let text: string = parent.text() ?? "";
+        let text: string = parent.text() ?? '';
         let newtext: RegExpMatchArray | null = text.match(/^[^=]+/);
 
         if (newtext != null) {
@@ -75,26 +75,26 @@ function PanelGestion() {
 //Gestion du mode clair/sombre
 function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
     if (!isBrightTheme()) {
-        actualIcon.attr("isBright", "true");
-        actualIcon.attr("src", "src/assets/icon_site/sun.svg");
+        actualIcon.attr('isBright', 'true');
+        actualIcon.attr('src', 'src/assets/icon_site/sun.svg');
         //changement des couleurs définies dans root.
         $(':root').css({
             '--bg': 'whitesmoke',
-            '--text-inBoxfont': 'white',
-            '--text-inHeadFont': 'white',
-            '--simpleText': 'black',
-            '--bgBox': 'black',
+            '--text-in-box': 'white',
+            '--text-in-header': 'white',
+            '--simple-text': 'black',
+            '--bg-box': 'black',
         });
 
     } else {
-        actualIcon.attr("isBright", "false");
-        actualIcon.attr("src", "src/assets/icon_site/moon.svg");
+        actualIcon.attr('isBright', 'false');
+        actualIcon.attr('src', 'src/assets/icon_site/moon.svg');
         $(':root').css({
             '--bg': 'black',
-            '--text-inBoxfont': 'whitesmoke',
-            '--text-inHeadFont': 'whitesmoke',
-            '--simpleText': 'white',
-            '--bgBox': '#0E202E',
+            '--text-in-box': 'whitesmoke',
+            '--text-in-header': 'whitesmoke',
+            '--simple-text': 'white',
+            '--bg-box': '#0E202E',
         });
     }
 };
@@ -111,10 +111,10 @@ function showAndLogicPanel(currentID: string) {
     const content: JQuery = $(currentID).find('.section-to-show');
     const overlay: JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='src/assets/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
 
-    overlay.find(".content-section").append(content.html());
+    overlay.find('.content-section').append(content.html());
     //ajout du panel à la page et blocage du scoll du body
     body.append(overlay);
-    body.css("overflow", "hidden");
+    body.css('overflow', 'hidden');
     //Transition d'affichage du panel
     overlay.fadeIn();
     EventsListenersForPanel(body, overlay);
@@ -127,6 +127,8 @@ function EventsListenersForPanel(body: JQuery<HTMLElement>, overlay: JQuery<HTML
 
     //La flèche à côté d'un texte de section dans la présentation.
     arrowDiscoverOrHide(overlay)
+
+    buttonSectionClose(overlay)
 
     //Gérer la fermeture du panel
     collapsePanel(body, overlay)
@@ -154,7 +156,7 @@ function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) 
     //On sort du panel si on clique sur échap
     body.on('keydown.panel', function (event) {
 
-        if (event.key === "Escape") {
+        if (event.key === 'Escape') {
             $('#image-retour').trigger('click');
         }
     });
@@ -169,11 +171,12 @@ function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) 
     });
 };
 
+//Pas forcément convaincu du résultat de l'animation, à voir si je garde.
 function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
 
-    overlay.find('.container-title-img').on("click", function () {
+    overlay.find('.container-title-img').on('click', function () {
 
-        let contentToShow = $(this).next(".text-section-to-show")
+        let contentToShow = $(this).next('.text-section-to-show')
 
         if (contentToShow.css('display') === 'none') {
             //Je n'ai pas fait slideDown() et slideUp() à la main, c'est trop long et sans doute moins performant.
@@ -187,7 +190,7 @@ function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
         }
     })
 
-    overlay.find('.container-title-img').on("mouseenter", function () {
+    overlay.find('.container-title-img').on('mouseenter', function () {
 
         $(this).children('img').addClass('animate');
         if ($(this).next(".text-section-to-show").css('display') !== 'none') {
@@ -197,13 +200,24 @@ function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
         }
     })
 
-    overlay.find('.container-title-img').on("mouseleave", function () {
+    overlay.find('.container-title-img').on('mouseleave', function () {
 
         $(this).children('img').removeClass('animate');
         $(this).children('img').removeAttr('style');
 
-        if ($(this).next(".text-section-to-show").css('display') !== 'none') {
+        if ($(this).next('.text-section-to-show').css('display') !== 'none') {
             $(this).children('img').css('transform', 'rotate(180deg)');
         }
     })
+}
+
+function buttonSectionClose(overlay: JQuery<HTMLElement>) {
+
+    overlay.find('.close-section').on('click', function() {
+
+        let contentToShow = $(this).parent()
+        contentToShow.slideUp(600)
+        
+    })
+
 }

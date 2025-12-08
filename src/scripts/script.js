@@ -1,5 +1,5 @@
 "use strict";
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     headerGestion();
     containerPresentation();
     programsCardsPresentation();
@@ -49,7 +49,7 @@ function programsCardsPresentation() {
     $('.program-card').on('mouseleave', function () {
         var _a;
         var parent = $(this).closest('.box-skills').find('p');
-        var text = (_a = parent.text()) !== null && _a !== void 0 ? _a : "";
+        var text = (_a = parent.text()) !== null && _a !== void 0 ? _a : '';
         var newtext = text.match(/^[^=]+/);
         if (newtext != null) {
             $(this).closest('.box-skills').find('p').text(newtext[0]);
@@ -65,26 +65,26 @@ function PanelGestion() {
 //Gestion du mode clair/sombre
 function changeBrightMode(actualIcon) {
     if (!isBrightTheme()) {
-        actualIcon.attr("isBright", "true");
-        actualIcon.attr("src", "src/assets/icon_site/sun.svg");
+        actualIcon.attr('isBright', 'true');
+        actualIcon.attr('src', 'src/assets/icon_site/sun.svg');
         //changement des couleurs définies dans root.
         $(':root').css({
             '--bg': 'whitesmoke',
-            '--text-inBoxfont': 'white',
-            '--text-inHeadFont': 'white',
-            '--simpleText': 'black',
-            '--bgBox': 'black',
+            '--text-in-box': 'white',
+            '--text-in-header': 'white',
+            '--simple-text': 'black',
+            '--bg-box': 'black',
         });
     }
     else {
-        actualIcon.attr("isBright", "false");
-        actualIcon.attr("src", "src/assets/icon_site/moon.svg");
+        actualIcon.attr('isBright', 'false');
+        actualIcon.attr('src', 'src/assets/icon_site/moon.svg');
         $(':root').css({
             '--bg': 'black',
-            '--text-inBoxfont': 'whitesmoke',
-            '--text-inHeadFont': 'whitesmoke',
-            '--simpleText': 'white',
-            '--bgBox': '#0E202E',
+            '--text-in-box': 'whitesmoke',
+            '--text-in-header': 'whitesmoke',
+            '--simple-text': 'white',
+            '--bg-box': '#0E202E',
         });
     }
 }
@@ -99,10 +99,10 @@ function showAndLogicPanel(currentID) {
     var body = $('body');
     var content = $(currentID).find('.section-to-show');
     var overlay = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='src/assets/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
-    overlay.find(".content-section").append(content.html());
+    overlay.find('.content-section').append(content.html());
     //ajout du panel à la page et blocage du scoll du body
     body.append(overlay);
-    body.css("overflow", "hidden");
+    body.css('overflow', 'hidden');
     //Transition d'affichage du panel
     overlay.fadeIn();
     EventsListenersForPanel(body, overlay);
@@ -112,6 +112,7 @@ function showAndLogicPanel(currentID) {
 function EventsListenersForPanel(body, overlay) {
     //La flèche à côté d'un texte de section dans la présentation.
     arrowDiscoverOrHide(overlay);
+    buttonSectionClose(overlay);
     //Gérer la fermeture du panel
     collapsePanel(body, overlay);
 }
@@ -133,7 +134,7 @@ function collapsePanel(body, overlay) {
     });
     //On sort du panel si on clique sur échap
     body.on('keydown.panel', function (event) {
-        if (event.key === "Escape") {
+        if (event.key === 'Escape') {
             $('#image-retour').trigger('click');
         }
     });
@@ -145,9 +146,10 @@ function collapsePanel(body, overlay) {
     });
 }
 ;
+//Pas forcément convaincu du résultat de l'animation, à voir si je garde.
 function arrowDiscoverOrHide(overlay) {
-    overlay.find('.container-title-img').on("click", function () {
-        var contentToShow = $(this).next(".text-section-to-show");
+    overlay.find('.container-title-img').on('click', function () {
+        var contentToShow = $(this).next('.text-section-to-show');
         if (contentToShow.css('display') === 'none') {
             //Je n'ai pas fait slideDown() et slideUp() à la main, c'est trop long et sans doute moins performant.
             contentToShow.slideDown(600);
@@ -159,7 +161,7 @@ function arrowDiscoverOrHide(overlay) {
             $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');
         }
     });
-    overlay.find('.container-title-img').on("mouseenter", function () {
+    overlay.find('.container-title-img').on('mouseenter', function () {
         $(this).children('img').addClass('animate');
         if ($(this).next(".text-section-to-show").css('display') !== 'none') {
             $(this).find('.animate').css('animation', 'arrowHoverTitleReverse 0.5s infinite');
@@ -168,11 +170,17 @@ function arrowDiscoverOrHide(overlay) {
             $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');
         }
     });
-    overlay.find('.container-title-img').on("mouseleave", function () {
+    overlay.find('.container-title-img').on('mouseleave', function () {
         $(this).children('img').removeClass('animate');
         $(this).children('img').removeAttr('style');
-        if ($(this).next(".text-section-to-show").css('display') !== 'none') {
+        if ($(this).next('.text-section-to-show').css('display') !== 'none') {
             $(this).children('img').css('transform', 'rotate(180deg)');
         }
+    });
+}
+function buttonSectionClose(overlay) {
+    overlay.find('.close-section').on('click', function () {
+        var contentToShow = $(this).parent();
+        contentToShow.slideUp(600);
     });
 }
