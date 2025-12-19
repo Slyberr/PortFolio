@@ -561,26 +561,51 @@
     bottom: 20px;
   }
 }
-:root footer {
+:root .footer-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 30px;
   background-color: var(--bg-box);
   margin-top: 20px;
+  font-size: 20px;
 }
 @media (max-width: 700px) {
-  :root footer a,
-  :root footer * {
+  :root .footer-section p,
+  :root .footer-section a,
+  :root .footer-section u,
+  :root .footer-section * {
     font-size: 14px;
   }
 }
 @media (max-width: 400px) {
-  :root footer a,
-  :root footer * {
+  :root .footer-section p,
+  :root .footer-section a,
+  :root .footer-section u,
+  :root .footer-section * {
     font-size: 10px;
   }
 }
-:root footer {
+:root .footer-section {
   color: var(--text-in-box);
+}
+:root .legals-mentions {
+  max-width: 70%;
+  padding: 20px;
+  line-height: 1.2;
+}
+:root .legals-mentions h1,
+:root .legals-mentions h2,
+:root .legals-mentions h3,
+:root .legals-mentions p,
+:root .legals-mentions u,
+:root .legals-mentions a {
+  color: black;
+}
+:root .legals-mentions .section {
+  padding-left: 10px;
+}
+:root .legals-mentions .section a {
+  font-size: 17px;
 }
 
 /*# sourceMappingURL=style.css.map */

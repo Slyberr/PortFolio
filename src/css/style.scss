@@ -605,15 +605,19 @@
         }
     }
 
-    footer {
+    .footer-section {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        gap:30px;
         background-color: var(--bg-box);
         margin-top: 20px;
+        font-size: 20px;
 
         @media (max-width: $phone-and-smalls-screens) {
 
+            p,
             a,
+            u,
             * {
                 font-size: 14px;
             }
@@ -621,12 +625,39 @@
 
         @media (max-width: $smalls-phones) {
 
+            p,
             a,
+            u,
             * {
                 font-size: 10px;
             }
         }
 
         color: var(--text-in-box);
+    }
+
+    //Pour le fichier legals-mentions.html. Pour l'instant, un seul fichier de css suffit car cette page ne demande aucun style spécial
+    .legals-mentions {
+        max-width: 70%;
+        padding: 20px;
+        line-height: 1.2;
+
+        h1,
+        h2,
+        h3,
+        p,
+        u,
+        a {
+            color: black;
+        }
+
+        .section {
+            padding-left: 10px;
+            a {
+                font-size: 17px;
+            }
+        }
+
+
     }
 }
