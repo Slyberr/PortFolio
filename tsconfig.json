@@ -5,7 +5,7 @@
     "strict": true,
     "esModuleInterop": true,
     "rootDir": "./src/ts",
-    "outDir": "./src/scripts",
+    "outDir": "./assets/scripts",
     "allowJs": true
   },
   "include": ["src/ts/**/*.ts"]

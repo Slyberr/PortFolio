@@ -16,7 +16,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "npx tsc   && sass  --watch ./src/css/style.scss:./src/css/style.css "
+    "compile": "npx tsc   && sass  --watch ./src/css/style.scss:./assets/css/style.css "
   },
   "devDependencies": {
     "@types/jquery": "^3.5.32",

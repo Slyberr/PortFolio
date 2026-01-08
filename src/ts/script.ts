@@ -76,7 +76,7 @@ function PanelGestion() {
 function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
     if (!isBrightTheme()) {
         actualIcon.attr('isBright', 'true');
-        actualIcon.attr('src', 'src/assets/icon_site/sun.svg');
+        actualIcon.attr('src', 'assets/img/icon_site/sun.svg');
         //changement des couleurs définies dans root.
         $(':root').css({
             '--bg': 'whitesmoke',
@@ -88,7 +88,7 @@ function changeBrightMode(actualIcon: JQuery<HTMLElement>) {
 
     } else {
         actualIcon.attr('isBright', 'false');
-        actualIcon.attr('src', 'src/assets/icon_site/moon.svg');
+        actualIcon.attr('src', 'assets/img/icon_site/moon.svg');
         $(':root').css({
             '--bg': 'black',
             '--text-in-box': 'whitesmoke',
@@ -109,7 +109,7 @@ function showAndLogicPanel(currentID: string) {
 
     const body: JQuery = $('body');
     const content: JQuery = $(currentID).find('.section-to-show');
-    const overlay: JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='src/assets/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
+    const overlay: JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='assets/img/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
 
     overlay.find('.content-section').append(content.html());
     //ajout du panel à la page et blocage du scoll du body
