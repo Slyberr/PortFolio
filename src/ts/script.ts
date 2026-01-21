@@ -28,10 +28,10 @@ function containerPresentation() {
 
     $('#slogan-portfolio').on('mouseenter', function () {
         $(this).html('Un portfolio fait main de A à Z. <i><u class="textadded"onhover="color:blue">En savoir plus</u></i>');
-        $('.textadded').on('click',function() {
+        $('.textadded').on('click', function () {
             window.alert('Technologies : HTML5/CSS3/TypeScript/SCSS et node.js pour gérer TS et SCSS.\n\nCe portfolio a été réalisé avec Jquery comme unique bibliothèque pour simplifier la manipulation du DOM.\n\n "slideUp()" et "slideDown()"  de cette dernière sont les seules fonctions utilisées dans un but esthétique.')
         })
-    
+
     })
     $('#slogan-portfolio').on('mouseleave', function () {
         $(this).text('Un portfolio fait main de A à Z.');
@@ -108,10 +108,21 @@ function isBrightTheme() {
 function showAndLogicPanel(currentID: string) {
 
     const body: JQuery = $('body');
-    const content: JQuery = $(currentID).find('.section-to-show');
-    const overlay: JQuery = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='assets/img/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
 
-    overlay.find('.content-section').append(content.html());
+    //récupération du template à cloner
+    const templateElement = $(currentID).find('.section-to-show')[0] as HTMLTemplateElement;
+    const overlay: JQuery = $(`
+        <div class='overlay'> 
+            <div class='temp-panel'>
+                <img id='image-retour' src='assets/img/icon_site/whiteCross.svg'>
+                <div class='content-section'></div>
+            </div>
+        </div>`);
+
+    if (templateElement && templateElement.content) {
+        const clone  = templateElement.content.cloneNode(true) as DocumentFragment;
+        overlay.find('.content-section').append(clone);
+    }
     //ajout du panel à la page et blocage du scoll du body
     body.append(overlay);
     body.css('overflow', 'hidden');
@@ -146,11 +157,11 @@ function collapsePanel(body: JQuery<HTMLElement>, overlay: JQuery<HTMLElement>) 
         })
 
         //Pour éviter que le texte du panel se décale un peu en disparaissant.
-        setTimeout(()=>{
+        setTimeout(() => {
             body.css({
-            'overflow': 'auto'
-        })
-        },350)
+                'overflow': 'auto'
+            })
+        }, 350)
     })
 
     //On sort du panel si on clique sur échap
@@ -186,7 +197,7 @@ function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
         } else {
             $(this).children('img').css('transform', 'rotate(0deg)');
             contentToShow.slideUp(600)
-            $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');   
+            $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');
         }
     })
 
@@ -195,7 +206,7 @@ function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
         $(this).children('img').addClass('animate');
         if ($(this).next(".text-section-to-show").css('display') !== 'none') {
             $(this).find('.animate').css('animation', 'arrowHoverTitleReverse 0.5s infinite');
-        }else{
+        } else {
             $(this).find('.animate').css('animation', 'arrowHoverTitle 0.5s infinite');
         }
     })
@@ -213,11 +224,11 @@ function arrowDiscoverOrHide(overlay: JQuery<HTMLElement>) {
 
 function buttonSectionClose(overlay: JQuery<HTMLElement>) {
 
-    overlay.find('.close-section').on('click', function() {
+    overlay.find('.close-section').on('click', function () {
 
         let contentToShow = $(this).parent()
         contentToShow.slideUp(600)
-        
+
     })
 
 }

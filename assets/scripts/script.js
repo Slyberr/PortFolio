@@ -97,9 +97,13 @@ function isBrightTheme() {
 //Gestion de l'affichage du panel avec le texte dédié.
 function showAndLogicPanel(currentID) {
     var body = $('body');
-    var content = $(currentID).find('.section-to-show');
-    var overlay = $("<div class='overlay'> <div class='temp-panel'><img id='image-retour' src='assets/img/icon_site/whiteCross.svg'><div class='content-section'></p></div></div>");
-    overlay.find('.content-section').append(content.html());
+    //récupération du template à cloner
+    var templateElement = $(currentID).find('.section-to-show')[0];
+    var overlay = $("\n        <div class='overlay'> \n            <div class='temp-panel'>\n                <img id='image-retour' src='assets/img/icon_site/whiteCross.svg'>\n                <div class='content-section'></div>\n            </div>\n        </div>");
+    if (templateElement && templateElement.content) {
+        var clone = templateElement.content.cloneNode(true);
+        overlay.find('.content-section').append(clone);
+    }
     //ajout du panel à la page et blocage du scoll du body
     body.append(overlay);
     body.css('overflow', 'hidden');

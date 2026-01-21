@@ -6,5 +6,5 @@
 code
 npm update
 gnome-terminal -- bash -c "cd /home/presti-louis/Documents/Git_Projects/PortFolio; exec bash"
-sass --watch  src/scss:src/css
+sass --watch  src/scss:assets/css
 
